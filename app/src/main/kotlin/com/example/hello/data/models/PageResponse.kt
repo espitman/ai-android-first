@@ -24,7 +24,49 @@ data class Widget(
     val accommodationCarousel: AccommodationCarouselData? = null,
     val banner: BannerData? = null,
     val linkCarousel: LinkCarouselData? = null,
-    val cardCarousel: CardCarouselData? = null
+    val cardCarousel: CardCarouselData? = null,
+    val text: TextData? = null,
+    val badges: BadgesData? = null
+)
+
+data class TextData(
+    val title: String?,
+    @com.google.gson.annotations.SerializedName("text")
+    val content: TextContent?,
+    val colors: TextColors?
+)
+
+data class TextContent(
+    val summary: String?,
+    val full: String?
+)
+
+data class TextColors(
+    val title: String?,
+    val summary: String?,
+    val full: String?,
+    val background: String?
+)
+
+data class BadgesData(
+    val title: String?,
+    val items: List<BadgeItem>,
+    val colors: BadgesColors?
+)
+
+data class BadgeItem(
+    val title: String,
+    val colors: BadgeItemColors?
+)
+
+data class BadgeItemColors(
+    val text: String?,
+    val background: String?
+)
+
+data class BadgesColors(
+    val title: String?,
+    val background: String?
 )
 
 data class CardCarouselData(

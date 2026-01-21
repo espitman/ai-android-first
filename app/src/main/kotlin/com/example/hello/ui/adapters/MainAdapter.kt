@@ -23,6 +23,8 @@ class MainAdapter(private val widgets: List<Widget>) : RecyclerView.Adapter<Recy
         const val TYPE_ACCOMMODATION = 4
         const val TYPE_LINK_CAROUSEL = 5
         const val TYPE_CARD_CAROUSEL = 6
+        const val TYPE_TEXT = 7
+        const val TYPE_BADGES = 8
         const val TYPE_UNKNOWN = 0
     }
 
@@ -34,6 +36,8 @@ class MainAdapter(private val widgets: List<Widget>) : RecyclerView.Adapter<Recy
             "accommodationCarousel" -> TYPE_ACCOMMODATION
             "linkCarousel" -> TYPE_LINK_CAROUSEL
             "cardCarousel" -> TYPE_CARD_CAROUSEL
+            "text" -> TYPE_TEXT
+            "badges" -> TYPE_BADGES
             else -> TYPE_UNKNOWN
         }
     }
@@ -47,6 +51,8 @@ class MainAdapter(private val widgets: List<Widget>) : RecyclerView.Adapter<Recy
             TYPE_ACCOMMODATION -> AccommodationViewHolder(inflater.inflate(R.layout.item_widget_accommodation, parent, false))
             TYPE_LINK_CAROUSEL -> LinkCarouselViewHolder(inflater.inflate(R.layout.item_widget_link_carousel, parent, false))
             TYPE_CARD_CAROUSEL -> CardCarouselViewHolder(inflater.inflate(R.layout.item_widget_card_carousel, parent, false))
+            TYPE_TEXT -> TextViewHolder(inflater.inflate(R.layout.item_widget_text, parent, false))
+            TYPE_BADGES -> BadgesViewHolder(inflater.inflate(R.layout.item_widget_badges, parent, false))
             else -> UnknownViewHolder(View(parent.context))
         }
     }
@@ -111,6 +117,49 @@ class MainAdapter(private val widgets: List<Widget>) : RecyclerView.Adapter<Recy
                     holder.recyclerView.adapter = CardCarouselAdapter(data.items)
                 }
             }
+            is TextViewHolder -> {
+                val data = widget.text
+                if (data != null) {
+                    holder.title.text = data.title
+                    holder.title.visibility = if (data.title.isNullOrEmpty()) View.GONE else View.VISIBLE
+                    
+                    holder.summary.text = data.content?.summary
+                    holder.summary.visibility = if (data.content?.summary.isNullOrEmpty()) View.GONE else View.VISIBLE
+                    
+                    holder.full.text = data.content?.full
+                    holder.full.visibility = if (data.content?.full.isNullOrEmpty()) View.GONE else View.VISIBLE
+                    
+                    data.colors?.background?.let {
+                        try { holder.container.setBackgroundColor(android.graphics.Color.parseColor(it)) } catch (e: Exception) {}
+                    }
+                    data.colors?.title?.let {
+                        try { holder.title.setTextColor(android.graphics.Color.parseColor(it)) } catch (e: Exception) {}
+                    }
+                    data.colors?.summary?.let {
+                        try { holder.summary.setTextColor(android.graphics.Color.parseColor(it)) } catch (e: Exception) {}
+                    }
+                    data.colors?.full?.let {
+                        try { holder.full.setTextColor(android.graphics.Color.parseColor(it)) } catch (e: Exception) {}
+                    }
+                }
+            }
+            is BadgesViewHolder -> {
+                val data = widget.badges
+                if (data != null) {
+                    holder.title.text = data.title
+                    holder.title.visibility = if (data.title.isNullOrEmpty()) View.GONE else View.VISIBLE
+                    
+                    data.colors?.background?.let {
+                        try { holder.container.setBackgroundColor(android.graphics.Color.parseColor(it)) } catch (e: Exception) {}
+                    }
+                    data.colors?.title?.let {
+                        try { holder.title.setTextColor(android.graphics.Color.parseColor(it)) } catch (e: Exception) {}
+                    }
+
+                    holder.recyclerView.layoutManager = LinearLayoutManager(holder.itemView.context, LinearLayoutManager.HORIZONTAL, false)
+                    holder.recyclerView.adapter = BadgesAdapter(data.items)
+                }
+            }
             is AccommodationViewHolder -> {
                 val acc = widget.accommodationCarousel
                 if (acc != null) {
@@ -159,6 +208,19 @@ class MainAdapter(private val widgets: List<Widget>) : RecyclerView.Adapter<Recy
 
     class BannerViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val imageView: ImageView = view.findViewById(R.id.ivBanner)
+    }
+
+    class TextViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+        val container: View = view.findViewById(R.id.container)
+        val title: TextView = view.findViewById(R.id.tvTitle)
+        val summary: TextView = view.findViewById(R.id.tvSummary)
+        val full: TextView = view.findViewById(R.id.tvFull)
+    }
+
+    class BadgesViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+        val container: View = view.findViewById(R.id.container)
+        val title: TextView = view.findViewById(R.id.tvTitle)
+        val recyclerView: RecyclerView = view.findViewById(R.id.rvBadges)
     }
 
     class LinkCarouselViewHolder(view: View) : RecyclerView.ViewHolder(view) {

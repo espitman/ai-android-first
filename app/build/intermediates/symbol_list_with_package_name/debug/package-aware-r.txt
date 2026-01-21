@@ -2975,6 +2975,7 @@ drawable abc_textfield_search_material
 drawable abc_vector_test
 drawable avd_hide_password
 drawable avd_show_password
+drawable bg_badge
 drawable bg_button_bordered
 drawable bg_category_item
 drawable btn_checkbox_checked_mtrl
@@ -3181,6 +3182,7 @@ id auto
 id autoComplete
 id autoCompleteToEnd
 id autoCompleteToStart
+id badgeTitle
 id barrier
 id baseline
 id beginOnFirstDraw
@@ -3473,6 +3475,7 @@ id right_side
 id rounded
 id row_index_key
 id rvAccommodations
+id rvBadges
 id rvCategories
 id rvItems
 id rvMain
@@ -3588,8 +3591,10 @@ id transition_transform
 id triangle
 id tvAccTitle
 id tvCurrency
+id tvFull
 id tvPerNight
 id tvSubTitle
+id tvSummary
 id tvTitle
 id unchecked
 id uniform
@@ -3751,16 +3756,19 @@ layout design_text_input_start_icon
 layout ime_base_split_test_activity
 layout ime_secondary_split_test_activity
 layout item_accommodation
+layout item_badge_item
 layout item_card_carousel_item
 layout item_category
 layout item_link_carousel_item
 layout item_slider
 layout item_widget_accommodation
+layout item_widget_badges
 layout item_widget_banner
 layout item_widget_card_carousel
 layout item_widget_categories
 layout item_widget_link_carousel
 layout item_widget_slider
+layout item_widget_text
 layout m3_alert_dialog
 layout m3_alert_dialog_actions
 layout m3_alert_dialog_title
