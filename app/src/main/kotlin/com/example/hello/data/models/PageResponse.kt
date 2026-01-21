@@ -60,7 +60,21 @@ data class BannerColors(
 data class AccommodationCarouselData(
     val title: String,
     val subTitle: String?,
-    val items: List<AccommodationItem>
+    val items: List<AccommodationItem>,
+    val button: WidgetButton? = null
+)
+
+data class WidgetButton(
+    val text: String,
+    val link: String?,
+    val openInNewTab: Boolean,
+    val colors: ButtonColors?
+)
+
+data class ButtonColors(
+    val text: String?,
+    val background: String?,
+    val border: String?
 )
 
 data class AccommodationItem(

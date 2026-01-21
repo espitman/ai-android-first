@@ -7,6 +7,7 @@ color purple_700
 color teal_200
 color teal_700
 color white
+drawable bg_button_bordered
 drawable bg_category_item
 drawable rounded_corner_bg
 font vazirmatn
@@ -19,6 +20,7 @@ id accPrice
 id accScore
 id accScoreCount
 id accTitle
+id btnShowAll
 id categoryBadgeContainer
 id categoryBadgeText
 id categoryContainer

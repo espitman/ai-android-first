@@ -91,6 +91,31 @@ class MainAdapter(private val widgets: List<Widget>) : RecyclerView.Adapter<Recy
                 val acc = widget.accommodationCarousel
                 if (acc != null) {
                     holder.title.text = acc.title
+                    
+                    // Setup Button
+                    val btn = acc.button
+                    if (btn != null) {
+                        holder.btnShowAll.visibility = View.VISIBLE
+                        holder.btnShowAll.text = btn.text
+                        
+                        btn.colors?.text?.let {
+                            try { holder.btnShowAll.setTextColor(android.graphics.Color.parseColor(it)) } catch (e: Exception) {}
+                        }
+                        
+                        // Handle dynamic background and border
+                        val bgDrawable = holder.btnShowAll.background as? android.graphics.drawable.GradientDrawable
+                        if (bgDrawable != null) {
+                            btn.colors?.background?.let {
+                                try { bgDrawable.setColor(android.graphics.Color.parseColor(it)) } catch (e: Exception) {}
+                            }
+                            btn.colors?.border?.let {
+                                try { bgDrawable.setStroke(3, android.graphics.Color.parseColor(it)) } catch (e: Exception) {}
+                            }
+                        }
+                    } else {
+                        holder.btnShowAll.visibility = View.GONE
+                    }
+
                     holder.recyclerView.layoutManager = LinearLayoutManager(holder.itemView.context, LinearLayoutManager.HORIZONTAL, false)
                     holder.recyclerView.adapter = AccommodationAdapter(acc.items)
                 }
@@ -121,6 +146,7 @@ class MainAdapter(private val widgets: List<Widget>) : RecyclerView.Adapter<Recy
 
     class AccommodationViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val title: TextView = view.findViewById(R.id.tvAccTitle)
+        val btnShowAll: TextView = view.findViewById(R.id.btnShowAll)
         val recyclerView: RecyclerView = view.findViewById(R.id.rvAccommodations)
     }
 
