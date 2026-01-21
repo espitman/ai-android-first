@@ -21,6 +21,7 @@ class MainAdapter(private val widgets: List<Widget>) : RecyclerView.Adapter<Recy
         const val TYPE_CATEGORIES = 2
         const val TYPE_BANNER = 3
         const val TYPE_ACCOMMODATION = 4
+        const val TYPE_LINK_CAROUSEL = 5
         const val TYPE_UNKNOWN = 0
     }
 
@@ -30,6 +31,7 @@ class MainAdapter(private val widgets: List<Widget>) : RecyclerView.Adapter<Recy
             "categories" -> TYPE_CATEGORIES
             "banner" -> TYPE_BANNER
             "accommodationCarousel" -> TYPE_ACCOMMODATION
+            "linkCarousel" -> TYPE_LINK_CAROUSEL
             else -> TYPE_UNKNOWN
         }
     }
@@ -41,6 +43,7 @@ class MainAdapter(private val widgets: List<Widget>) : RecyclerView.Adapter<Recy
             TYPE_CATEGORIES -> CategoriesViewHolder(inflater.inflate(R.layout.item_widget_categories, parent, false))
             TYPE_BANNER -> BannerViewHolder(inflater.inflate(R.layout.item_widget_banner, parent, false))
             TYPE_ACCOMMODATION -> AccommodationViewHolder(inflater.inflate(R.layout.item_widget_accommodation, parent, false))
+            TYPE_LINK_CAROUSEL -> LinkCarouselViewHolder(inflater.inflate(R.layout.item_widget_link_carousel, parent, false))
             else -> UnknownViewHolder(View(parent.context))
         }
     }
@@ -61,6 +64,27 @@ class MainAdapter(private val widgets: List<Widget>) : RecyclerView.Adapter<Recy
                 val banner = widget.banner
                 if (banner != null) {
                     holder.imageView.load(banner.gifUrl)
+                }
+            }
+            is LinkCarouselViewHolder -> {
+                val data = widget.linkCarousel
+                if (data != null) {
+                    holder.title.text = data.title
+                    holder.subTitle.text = data.subTitle
+                    holder.subTitle.visibility = if (data.subTitle.isNullOrEmpty()) View.GONE else View.VISIBLE
+                    
+                    data.colors?.background?.let {
+                        try { holder.container.setBackgroundColor(android.graphics.Color.parseColor(it)) } catch (e: Exception) {}
+                    }
+                    data.colors?.title?.let {
+                        try { holder.title.setTextColor(android.graphics.Color.parseColor(it)) } catch (e: Exception) {}
+                    }
+                    data.colors?.subTitle?.let {
+                        try { holder.subTitle.setTextColor(android.graphics.Color.parseColor(it)) } catch (e: Exception) {}
+                    }
+
+                    holder.recyclerView.layoutManager = LinearLayoutManager(holder.itemView.context, LinearLayoutManager.HORIZONTAL, false)
+                    holder.recyclerView.adapter = LinkCarouselAdapter(data.items)
                 }
             }
             is AccommodationViewHolder -> {
@@ -86,6 +110,13 @@ class MainAdapter(private val widgets: List<Widget>) : RecyclerView.Adapter<Recy
 
     class BannerViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val imageView: ImageView = view.findViewById(R.id.ivBanner)
+    }
+
+    class LinkCarouselViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+        val container: View = view.findViewById(R.id.container)
+        val title: TextView = view.findViewById(R.id.tvTitle)
+        val subTitle: TextView = view.findViewById(R.id.tvSubTitle)
+        val recyclerView: RecyclerView = view.findViewById(R.id.rvItems)
     }
 
     class AccommodationViewHolder(view: View) : RecyclerView.ViewHolder(view) {
