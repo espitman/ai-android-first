@@ -16,10 +16,10 @@ data class PageInfo(
 
 data class Widget(
     val id: String,
-    val type: String, // "slider", "categories", etc.
+    val type: String,
     val order: Int,
-    val slider: SliderData? = null
-    // Add other widget data types here as needed in future
+    val slider: SliderData? = null,
+    val categories: CategoriesData? = null
 )
 
 data class SliderData(
@@ -31,4 +31,22 @@ data class SliderItem(
     val image: String,
     val link: String?,
     val openInNewTab: Boolean
+)
+
+data class CategoriesData(
+    val items: List<CategoryItem>
+)
+
+data class CategoryItem(
+    val title: String,
+    val icon: String,
+    val link: String?,
+    val openInNewTab: Boolean,
+    val badge: Badge? = null
+)
+
+data class Badge(
+    val title: String,
+    val bgColor: String?,
+    val textColor: String?
 )

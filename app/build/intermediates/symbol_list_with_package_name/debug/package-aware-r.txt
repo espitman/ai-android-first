@@ -2975,6 +2975,7 @@ drawable abc_textfield_search_material
 drawable abc_vector_test
 drawable avd_hide_password
 drawable avd_show_password
+drawable bg_category_item
 drawable btn_checkbox_checked_mtrl
 drawable btn_checkbox_checked_to_unchecked_mtrl_animation
 drawable btn_checkbox_unchecked_mtrl
@@ -3078,9 +3079,12 @@ drawable notification_template_icon_bg
 drawable notification_template_icon_low_bg
 drawable notification_tile_bg
 drawable notify_panel_notification_icon_bg
+drawable rounded_corner_bg
 drawable test_level_drawable
 drawable tooltip_frame_dark
 drawable tooltip_frame_light
+font vazirmatn
+font vazirmatn_regular
 id ALT
 id BOTTOM_END
 id BOTTOM_START
@@ -3184,6 +3188,11 @@ id cache_measures
 id callMeasure
 id cancel_button
 id carryVelocity
+id categoryBadgeContainer
+id categoryBadgeText
+id categoryContainer
+id categoryIcon
+id categoryTitle
 id center
 id centerCrop
 id centerInside
@@ -3435,6 +3444,7 @@ id pin
 id position
 id postLayout
 id pressed
+id progressBar
 id progress_circular
 id progress_horizontal
 id radio
@@ -3448,6 +3458,7 @@ id right_icon
 id right_side
 id rounded
 id row_index_key
+id rvCategories
 id save_non_transition_alpha
 id save_overlay_view
 id sawtooth
@@ -3716,6 +3727,7 @@ layout design_text_input_end_icon
 layout design_text_input_start_icon
 layout ime_base_split_test_activity
 layout ime_secondary_split_test_activity
+layout item_category
 layout item_slider
 layout m3_alert_dialog
 layout m3_alert_dialog_actions
