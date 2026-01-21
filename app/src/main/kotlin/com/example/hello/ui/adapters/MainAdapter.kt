@@ -86,6 +86,27 @@ class MainAdapter(private val widgets: List<Widget>) : RecyclerView.Adapter<Recy
                     holder.subTitle.text = data.subTitle
                     holder.subTitle.visibility = if (data.subTitle.isNullOrEmpty()) View.GONE else View.VISIBLE
                     
+                    // Setup Button
+                    val btn = data.button
+                    if (btn != null) {
+                        holder.btnShowAll.visibility = View.VISIBLE
+                        holder.btnShowAll.text = btn.text
+                        btn.colors?.text?.let {
+                            try { holder.btnShowAll.setTextColor(android.graphics.Color.parseColor(it)) } catch (e: Exception) {}
+                        }
+                        val bgDrawable = holder.btnShowAll.background.mutate() as? android.graphics.drawable.GradientDrawable
+                        if (bgDrawable != null) {
+                            btn.colors?.background?.let {
+                                try { bgDrawable.setColor(android.graphics.Color.parseColor(it)) } catch (e: Exception) {}
+                            }
+                            btn.colors?.border?.let {
+                                try { bgDrawable.setStroke(3, android.graphics.Color.parseColor(it)) } catch (e: Exception) {}
+                            }
+                        }
+                    } else {
+                        holder.btnShowAll.visibility = View.GONE
+                    }
+
                     data.colors?.background?.let {
                         try { holder.container.setBackgroundColor(android.graphics.Color.parseColor(it)) } catch (e: Exception) {}
                     }
@@ -108,6 +129,27 @@ class MainAdapter(private val widgets: List<Widget>) : RecyclerView.Adapter<Recy
                     holder.subTitle.text = data.subTitle
                     holder.subTitle.visibility = if (data.subTitle.isNullOrEmpty()) View.GONE else View.VISIBLE
                     
+                    // Setup Button
+                    val btn = data.button
+                    if (btn != null) {
+                        holder.btnShowAll.visibility = View.VISIBLE
+                        holder.btnShowAll.text = btn.text
+                        btn.colors?.text?.let {
+                            try { holder.btnShowAll.setTextColor(android.graphics.Color.parseColor(it)) } catch (e: Exception) {}
+                        }
+                        val bgDrawable = holder.btnShowAll.background.mutate() as? android.graphics.drawable.GradientDrawable
+                        if (bgDrawable != null) {
+                            btn.colors?.background?.let {
+                                try { bgDrawable.setColor(android.graphics.Color.parseColor(it)) } catch (e: Exception) {}
+                            }
+                            btn.colors?.border?.let {
+                                try { bgDrawable.setStroke(3, android.graphics.Color.parseColor(it)) } catch (e: Exception) {}
+                            }
+                        }
+                    } else {
+                        holder.btnShowAll.visibility = View.GONE
+                    }
+
                     data.colors?.background?.let {
                         try { holder.container.setBackgroundColor(android.graphics.Color.parseColor(it)) } catch (e: Exception) {}
                     }
@@ -231,6 +273,7 @@ class MainAdapter(private val widgets: List<Widget>) : RecyclerView.Adapter<Recy
     class LinkCarouselViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val container: View = view.findViewById(R.id.container)
         val title: TextView = view.findViewById(R.id.tvTitle)
+        val btnShowAll: TextView = view.findViewById(R.id.btnShowAll)
         val subTitle: TextView = view.findViewById(R.id.tvSubTitle)
         val recyclerView: RecyclerView = view.findViewById(R.id.rvItems)
     }
@@ -238,6 +281,7 @@ class MainAdapter(private val widgets: List<Widget>) : RecyclerView.Adapter<Recy
     class CardCarouselViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val container: View = view.findViewById(R.id.container)
         val title: TextView = view.findViewById(R.id.tvTitle)
+        val btnShowAll: TextView = view.findViewById(R.id.btnShowAll)
         val subTitle: TextView = view.findViewById(R.id.tvSubTitle)
         val recyclerView: RecyclerView = view.findViewById(R.id.rvItems)
     }

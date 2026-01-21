@@ -73,7 +73,8 @@ data class CardCarouselData(
     val title: String,
     val subTitle: String?,
     val items: List<CardCarouselItem>,
-    val colors: LinkCarouselColors? // Using same color structure as linkCarousel if identical
+    val colors: LinkCarouselColors?, // Using same color structure as linkCarousel if identical
+    val button: WidgetButton? = null
 )
 
 data class CardCarouselItem(
@@ -88,7 +89,8 @@ data class LinkCarouselData(
     val title: String,
     val subTitle: String?,
     val items: List<LinkCarouselItem>,
-    val colors: LinkCarouselColors?
+    val colors: LinkCarouselColors?,
+    val button: WidgetButton? = null
 )
 
 data class LinkCarouselItem(
