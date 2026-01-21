@@ -3179,8 +3179,6 @@ id bounce
 id bounceBoth
 id bounceEnd
 id bounceStart
-id btnAlert
-id btnNextPage
 id buttonPanel
 id cache_measures
 id callMeasure
@@ -3203,6 +3201,7 @@ id clip_horizontal
 id clip_vertical
 id clockwise
 id closest
+id coil_request_manager
 id collapseActionView
 id compress
 id confirm_button
@@ -3482,6 +3481,8 @@ id sin
 id skipCollapsed
 id skipped
 id slide
+id sliderImage
+id sliderTitle
 id snackbar_action
 id snackbar_text
 id snap
@@ -3562,6 +3563,7 @@ id unlabeled
 id up
 id useLogo
 id vertical_only
+id viewPagerSlider
 id view_offset_helper
 id view_transition
 id view_tree_lifecycle_owner
@@ -3714,6 +3716,7 @@ layout design_text_input_end_icon
 layout design_text_input_start_icon
 layout ime_base_split_test_activity
 layout ime_secondary_split_test_activity
+layout item_slider
 layout m3_alert_dialog
 layout m3_alert_dialog_actions
 layout m3_alert_dialog_title

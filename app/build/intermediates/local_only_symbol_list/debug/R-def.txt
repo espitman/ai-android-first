@@ -7,11 +7,13 @@ color purple_700
 color teal_200
 color teal_700
 color white
-id btnAlert
-id btnNextPage
+id sliderImage
+id sliderTitle
+id viewPagerSlider
 id webview
 layout activity_main
 layout activity_second
+layout item_slider
 string app_name
 string hello_world
 style Theme.FirstApp
