@@ -9,7 +9,13 @@
     <color name="white">#FFFFFFFF</color>
     <string name="app_name">First App</string>
     <string name="hello_world">Hello World!</string>
-    <style name="Theme.FirstApp" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+    <style name="RoundedTopCorners">
+        <item name="cornerSizeTopLeft">20dp</item>
+        <item name="cornerSizeTopRight">20dp</item>
+        <item name="cornerSizeBottomLeft">0dp</item>
+        <item name="cornerSizeBottomRight">0dp</item>
+    </style>
+    <style name="Theme.FirstApp" parent="Theme.MaterialComponents.Light.NoActionBar">
         <item name="colorPrimary">@color/purple_500</item>
         <item name="colorPrimaryVariant">@color/purple_700</item>
         <item name="colorOnPrimary">@color/white</item>

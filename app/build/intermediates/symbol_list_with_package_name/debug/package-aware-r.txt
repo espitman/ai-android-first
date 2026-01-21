@@ -3099,6 +3099,14 @@ id SHOW_PROGRESS
 id SYM
 id TOP_END
 id TOP_START
+id accCapacity
+id accDiscountBadge
+id accImage
+id accLocation
+id accPrice
+id accScore
+id accScoreCount
+id accTitle
 id accelerate
 id accessibility_action_clickable_span
 id accessibility_custom_action_0
@@ -3458,6 +3466,7 @@ id right_icon
 id right_side
 id rounded
 id row_index_key
+id rvAccommodations
 id rvCategories
 id save_non_transition_alpha
 id save_overlay_view
@@ -3517,6 +3526,7 @@ id startToEnd
 id startVertical
 id staticLayout
 id staticPostLayout
+id statsRow
 id stop
 id stretch
 id submenuarrow
@@ -3568,6 +3578,9 @@ id transition_position
 id transition_scene_layoutid_cache
 id transition_transform
 id triangle
+id tvAccTitle
+id tvCurrency
+id tvPerNight
 id unchecked
 id uniform
 id unlabeled
@@ -3727,6 +3740,7 @@ layout design_text_input_end_icon
 layout design_text_input_start_icon
 layout ime_base_split_test_activity
 layout ime_secondary_split_test_activity
+layout item_accommodation
 layout item_category
 layout item_slider
 layout m3_alert_dialog
@@ -4283,6 +4297,7 @@ style Platform_V21_AppCompat_Light
 style Platform_V25_AppCompat
 style Platform_V25_AppCompat_Light
 style Platform_Widget_AppCompat_Spinner
+style RoundedTopCorners
 style RtlOverlay_DialogWindowTitle_AppCompat
 style RtlOverlay_Widget_AppCompat_ActionBar_TitleItem
 style RtlOverlay_Widget_AppCompat_DialogTitle_Icon

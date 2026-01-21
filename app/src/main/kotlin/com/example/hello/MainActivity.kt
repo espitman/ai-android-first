@@ -24,7 +24,7 @@ class MainActivity : AppCompatActivity() {
         lifecycleScope.launch(kotlinx.coroutines.Dispatchers.IO) {
             try {
                 val response = com.example.hello.data.network.RetrofitClient.apiService.getPages()
-                android.util.Log.d("API_DEBUG", "Response received: ${response}")
+                android.util.Log.d("API_DEBUG", "Response received. Widget types: ${response.widgets.map { it.type }}")
                 val sliderWidget = response.widgets.find { it.type == "slider" }
                 val sliderItems = sliderWidget?.slider?.items ?: emptyList()
                 
@@ -53,6 +53,23 @@ class MainActivity : AppCompatActivity() {
                          // But GridLayoutManager handles 4 columns standard.
                          rvCategories.adapter = com.example.hello.ui.adapters.CategoriesAdapter(categoryItems)
                          rvCategories.visibility = android.view.View.VISIBLE
+                    }
+
+                    // Setup Accommodations
+                    val accWidget = response.widgets.find { it.type == "accommodationCarousel" }
+                    val accData = accWidget?.accommodationCarousel
+                    val accItems = accData?.items ?: emptyList()
+                    
+                    val tvAccTitle = findViewById<android.widget.TextView>(com.example.hello.R.id.tvAccTitle)
+                    val rvAcc = findViewById<androidx.recyclerview.widget.RecyclerView>(com.example.hello.R.id.rvAccommodations)
+                    
+                    if (accItems.isNotEmpty()) {
+                        tvAccTitle.text = accData?.title ?: "پیشنهادهای ویژه"
+                        tvAccTitle.visibility = android.view.View.VISIBLE
+                        
+                        rvAcc.layoutManager = androidx.recyclerview.widget.LinearLayoutManager(this@MainActivity, androidx.recyclerview.widget.LinearLayoutManager.HORIZONTAL, false)
+                        rvAcc.adapter = com.example.hello.ui.adapters.AccommodationAdapter(accItems)
+                        rvAcc.visibility = android.view.View.VISIBLE
                     }
                 }
             } catch (e: Exception) {

@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="260dp"
+    android:layout_height="wrap_content"
+    android:layout_margin="10dp"
+    app:cardCornerRadius="20dp"
+    app:cardElevation="3dp"
+    android:layoutDirection="rtl">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="16dp">
+
+        <!-- Image -->
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/accImage"
+            android:layout_width="match_parent"
+            android:layout_height="160dp"
+            android:scaleType="centerCrop"
+            android:background="#F0F0F0"
+            app:layout_constraintTop_toTopOf="parent"
+            app:shapeAppearanceOverlay="@style/RoundedTopCorners" />
+
+        <!-- Discount Badge (Top-Start) -->
+        <TextView
+            android:id="@+id/accDiscountBadge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="12dp"
+            android:background="@drawable/rounded_corner_bg"
+            android:backgroundTint="#FF5252"
+            android:paddingHorizontal="10dp"
+            android:paddingVertical="4dp"
+            android:text="۲۰٪ تخفیف"
+            android:textColor="#FFFFFF"
+            android:textSize="11sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <!-- Info Container -->
+        <TextView
+            android:id="@+id/accLocation"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:layout_marginHorizontal="16dp"
+            android:text="گیلان، رشت"
+            android:textColor="#888"
+            android:textSize="11sp"
+            app:layout_constraintTop_toBottomOf="@id/accImage"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <TextView
+            android:id="@+id/accTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:layout_marginHorizontal="16dp"
+            android:text="سوئیت چیکا - واحد ساج"
+            android:textColor="#333"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:maxLines="1"
+            android:ellipsize="end"
+            app:layout_constraintTop_toBottomOf="@id/accLocation"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <!-- Stats Row -->
+        <LinearLayout
+            android:id="@+id/statsRow"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginHorizontal="16dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            app:layout_constraintTop_toBottomOf="@id/accTitle"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <TextView
+                android:id="@+id/accScore"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="★ ۴.۸"
+                android:textColor="#FFAC33"
+                android:textStyle="bold"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/accScoreCount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:text="(۳۷ نظر)"
+                android:textColor="#AAA"
+                android:textSize="11sp" />
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="12dp"
+                android:layout_marginHorizontal="8dp"
+                android:background="#DDD" />
+
+            <TextView
+                android:id="@+id/accCapacity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="👥 ۴ نفر"
+                android:textColor="#777"
+                android:textSize="11sp" />
+        </LinearLayout>
+
+        <!-- Simplified Price Section -->
+        <TextView
+            android:id="@+id/accPrice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="4dp"
+            android:text="۱,۴۴۰,۰۰۰"
+            android:textColor="#222"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintTop_toBottomOf="@id/statsRow"
+            app:layout_constraintEnd_toStartOf="@+id/tvCurrency" />
+
+        <TextView
+            android:id="@+id/tvCurrency"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="2dp"
+            android:text="تومان"
+            android:textColor="#444"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="@id/accPrice"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <TextView
+            android:id="@+id/tvPerNight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:text="هر شب"
+            android:textColor="#999"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="@id/accPrice"
+            app:layout_constraintStart_toStartOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>

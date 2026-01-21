@@ -38,8 +38,31 @@
             android:orientation="horizontal"
             android:paddingStart="8dp"
             android:paddingEnd="8dp"
-            android:layout_marginBottom="20dp"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+            android:layout_marginBottom="16dp"
+            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager" />
+
+        <TextView
+            android:id="@+id/tvAccTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="پیشنهادهای ویژه"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="#333"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginBottom="8dp"
+            android:gravity="right"
+            android:visibility="gone" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvAccommodations"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clipToPadding="false"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp"
+            android:layoutDirection="rtl"
+            android:visibility="gone" />
 
     </LinearLayout>
 </ScrollView>
