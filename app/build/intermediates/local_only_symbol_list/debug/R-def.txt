@@ -24,9 +24,11 @@ id categoryBadgeText
 id categoryContainer
 id categoryIcon
 id categoryTitle
+id ivBanner
 id progressBar
 id rvAccommodations
 id rvCategories
+id rvMain
 id sliderImage
 id sliderTitle
 id statsRow
@@ -40,6 +42,10 @@ layout activity_second
 layout item_accommodation
 layout item_category
 layout item_slider
+layout item_widget_accommodation
+layout item_widget_banner
+layout item_widget_categories
+layout item_widget_slider
 string app_name
 string hello_world
 style RoundedTopCorners

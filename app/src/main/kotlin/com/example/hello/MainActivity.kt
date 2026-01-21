@@ -4,79 +4,41 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.lifecycle.lifecycleScope
 import kotlinx.coroutines.launch
+import coil.load
+import com.example.hello.ui.adapters.MainAdapter
+import androidx.recyclerview.widget.RecyclerView
+import android.view.View
+import android.widget.ProgressBar
+import android.widget.Toast
+import android.util.Log
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
+import com.example.hello.data.network.RetrofitClient
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         androidx.appcompat.app.AppCompatDelegate.setDefaultNightMode(androidx.appcompat.app.AppCompatDelegate.MODE_NIGHT_NO)
         super.onCreate(savedInstanceState)
-        setContentView(com.example.hello.R.layout.activity_main)
+        setContentView(R.layout.activity_main)
         supportActionBar?.hide()
         
-        // Setup Slider
-        val viewPager = findViewById<androidx.viewpager2.widget.ViewPager2>(com.example.hello.R.id.viewPagerSlider)
-        val progressBar = findViewById<android.widget.ProgressBar>(com.example.hello.R.id.progressBar)
+        val rvMain = findViewById<RecyclerView>(R.id.rvMain)
+        val progressBar = findViewById<ProgressBar>(R.id.progressBar)
         
-        // Initially hide content until loaded (optional, or just show loading on top)
-        viewPager.visibility = android.view.View.INVISIBLE
-        val rvCategories = findViewById<androidx.recyclerview.widget.RecyclerView>(com.example.hello.R.id.rvCategories)
-        rvCategories.visibility = android.view.View.INVISIBLE
-
-        lifecycleScope.launch(kotlinx.coroutines.Dispatchers.IO) {
+        lifecycleScope.launch(Dispatchers.IO) {
             try {
-                val response = com.example.hello.data.network.RetrofitClient.apiService.getPages()
-                android.util.Log.d("API_DEBUG", "Response received. Widget types: ${response.widgets.map { it.type }}")
-                val sliderWidget = response.widgets.find { it.type == "slider" }
-                val sliderItems = sliderWidget?.slider?.items ?: emptyList()
+                val response = RetrofitClient.apiService.getPages()
+                val sortedWidgets = response.widgets.sortedBy { it.order }
                 
-                kotlinx.coroutines.withContext(kotlinx.coroutines.Dispatchers.Main) {
-                    progressBar.visibility = android.view.View.GONE
-                    
-                    // Setup Slider
-                    if (sliderItems.isNotEmpty()) {
-                        android.util.Log.d("API_DEBUG", "Slider items found: ${sliderItems.size}")
-                        viewPager.adapter = com.example.hello.ui.adapters.SliderAdapter(sliderItems)
-                        viewPager.visibility = android.view.View.VISIBLE
-                    } else {
-                         android.util.Log.e("API_DEBUG", "No slider items found. Widgets: ${response.widgets.map { it.type }}")
-                         android.widget.Toast.makeText(this@MainActivity, "Api Connected but No Slider", android.widget.Toast.LENGTH_LONG).show()
-                    }
-
-                    // Setup Categories
-                    val categoriesWidget = response.widgets.find { it.type == "categories" }
-                    val categoryItems = categoriesWidget?.categories?.items ?: emptyList()
-                    // rvCategories is already declared above, no need to redeclare here
-                    
-                    if (categoryItems.isNotEmpty()) {
-                         android.util.Log.d("API_DEBUG", "Categories found: ${categoryItems.size}")
-                         rvCategories.layoutManager = androidx.recyclerview.widget.GridLayoutManager(this@MainActivity, 4)
-                         // For RTL in Grid, sometimes layoutDirection needs to be handled or simply order of items.
-                         // But GridLayoutManager handles 4 columns standard.
-                         rvCategories.adapter = com.example.hello.ui.adapters.CategoriesAdapter(categoryItems)
-                         rvCategories.visibility = android.view.View.VISIBLE
-                    }
-
-                    // Setup Accommodations
-                    val accWidget = response.widgets.find { it.type == "accommodationCarousel" }
-                    val accData = accWidget?.accommodationCarousel
-                    val accItems = accData?.items ?: emptyList()
-                    
-                    val tvAccTitle = findViewById<android.widget.TextView>(com.example.hello.R.id.tvAccTitle)
-                    val rvAcc = findViewById<androidx.recyclerview.widget.RecyclerView>(com.example.hello.R.id.rvAccommodations)
-                    
-                    if (accItems.isNotEmpty()) {
-                        tvAccTitle.text = accData?.title ?: "پیشنهادهای ویژه"
-                        tvAccTitle.visibility = android.view.View.VISIBLE
-                        
-                        rvAcc.layoutManager = androidx.recyclerview.widget.LinearLayoutManager(this@MainActivity, androidx.recyclerview.widget.LinearLayoutManager.HORIZONTAL, false)
-                        rvAcc.adapter = com.example.hello.ui.adapters.AccommodationAdapter(accItems)
-                        rvAcc.visibility = android.view.View.VISIBLE
-                    }
+                withContext(Dispatchers.Main) {
+                    progressBar.visibility = View.GONE
+                    rvMain.adapter = MainAdapter(sortedWidgets)
                 }
             } catch (e: Exception) {
-                kotlinx.coroutines.withContext(kotlinx.coroutines.Dispatchers.Main) {
-                    progressBar.visibility = android.view.View.GONE
-                    android.util.Log.e("API_DEBUG", "Error fetching data: ${e.message}", e)
-                    android.widget.Toast.makeText(this@MainActivity, "Error: ${e.message}", android.widget.Toast.LENGTH_LONG).show()
+                withContext(Dispatchers.Main) {
+                    progressBar.visibility = View.GONE
+                    Log.e("API_DEBUG", "Error fetching data: ${e.message}", e)
+                    Toast.makeText(this@MainActivity, "Error: ${e.message}", Toast.LENGTH_LONG).show()
                 }
             }
         }

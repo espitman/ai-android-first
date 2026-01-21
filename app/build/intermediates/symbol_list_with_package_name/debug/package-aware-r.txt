@@ -3327,6 +3327,7 @@ id invisible
 id inward
 id italic
 id item_touch_helper_previous_elevation
+id ivBanner
 id jumpToEnd
 id jumpToStart
 id labeled
@@ -3468,6 +3469,7 @@ id rounded
 id row_index_key
 id rvAccommodations
 id rvCategories
+id rvMain
 id save_non_transition_alpha
 id save_overlay_view
 id sawtooth
@@ -3743,6 +3745,10 @@ layout ime_secondary_split_test_activity
 layout item_accommodation
 layout item_category
 layout item_slider
+layout item_widget_accommodation
+layout item_widget_banner
+layout item_widget_categories
+layout item_widget_slider
 layout m3_alert_dialog
 layout m3_alert_dialog_actions
 layout m3_alert_dialog_title
