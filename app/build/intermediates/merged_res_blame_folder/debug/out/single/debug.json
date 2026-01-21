@@ -16,10 +16,6 @@
         "source": "/Users/espitman/.gradle/daemon/8.11.1/com.example.hello.app-main-35:/layout/item_widget_slider.xml"
     },
     {
-        "merged": "com.example.hello.app-merged_res-33:/layout_item_widget_accommodation.xml.flat",
-        "source": "com.example.hello.app-main-35:/layout/item_widget_accommodation.xml"
-    },
-    {
         "merged": "/Users/espitman/.gradle/daemon/8.11.1/com.example.hello.app-merged_res-33:/layout_activity_second.xml.flat",
         "source": "/Users/espitman/.gradle/daemon/8.11.1/com.example.hello.app-main-35:/layout/activity_second.xml"
     },
@@ -48,16 +44,24 @@
         "source": "/Users/espitman/.gradle/daemon/8.11.1/com.example.hello.app-main-35:/layout/item_slider.xml"
     },
     {
+        "merged": "/Users/espitman/.gradle/daemon/8.11.1/com.example.hello.app-merged_res-33:/drawable_bg_button_bordered.xml.flat",
+        "source": "/Users/espitman/.gradle/daemon/8.11.1/com.example.hello.app-main-35:/drawable/bg_button_bordered.xml"
+    },
+    {
         "merged": "/Users/espitman/.gradle/daemon/8.11.1/com.example.hello.app-merged_res-33:/layout_item_widget_accommodation.xml.flat",
         "source": "/Users/espitman/.gradle/daemon/8.11.1/com.example.hello.app-main-35:/layout/item_widget_accommodation.xml"
     },
     {
-        "merged": "com.example.hello.app-merged_res-33:/drawable_bg_button_bordered.xml.flat",
-        "source": "com.example.hello.app-main-35:/drawable/bg_button_bordered.xml"
+        "merged": "com.example.hello.app-merged_res-33:/layout_item_card_carousel_item.xml.flat",
+        "source": "com.example.hello.app-main-35:/layout/item_card_carousel_item.xml"
     },
     {
         "merged": "/Users/espitman/.gradle/daemon/8.11.1/com.example.hello.app-merged_res-33:/layout_item_widget_banner.xml.flat",
         "source": "/Users/espitman/.gradle/daemon/8.11.1/com.example.hello.app-main-35:/layout/item_widget_banner.xml"
+    },
+    {
+        "merged": "com.example.hello.app-merged_res-33:/layout_item_widget_card_carousel.xml.flat",
+        "source": "com.example.hello.app-main-35:/layout/item_widget_card_carousel.xml"
     },
     {
         "merged": "/Users/espitman/.gradle/daemon/8.11.1/com.example.hello.app-merged_res-33:/layout_item_widget_categories.xml.flat",

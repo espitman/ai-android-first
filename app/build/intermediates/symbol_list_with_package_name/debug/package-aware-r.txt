@@ -3329,6 +3329,7 @@ id invisible
 id inward
 id italic
 id itemImage
+id itemSubTitle
 id itemTitle
 id item_touch_helper_previous_elevation
 id ivBanner
@@ -3750,11 +3751,13 @@ layout design_text_input_start_icon
 layout ime_base_split_test_activity
 layout ime_secondary_split_test_activity
 layout item_accommodation
+layout item_card_carousel_item
 layout item_category
 layout item_link_carousel_item
 layout item_slider
 layout item_widget_accommodation
 layout item_widget_banner
+layout item_widget_card_carousel
 layout item_widget_categories
 layout item_widget_link_carousel
 layout item_widget_slider

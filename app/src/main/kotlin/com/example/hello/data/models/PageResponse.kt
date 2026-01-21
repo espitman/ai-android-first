@@ -23,7 +23,23 @@ data class Widget(
     @com.google.gson.annotations.SerializedName("accommodationCarousel")
     val accommodationCarousel: AccommodationCarouselData? = null,
     val banner: BannerData? = null,
-    val linkCarousel: LinkCarouselData? = null
+    val linkCarousel: LinkCarouselData? = null,
+    val cardCarousel: CardCarouselData? = null
+)
+
+data class CardCarouselData(
+    val title: String,
+    val subTitle: String?,
+    val items: List<CardCarouselItem>,
+    val colors: LinkCarouselColors? // Using same color structure as linkCarousel if identical
+)
+
+data class CardCarouselItem(
+    val title: String,
+    val subTitle: String?,
+    val image: String,
+    val link: String?,
+    val openInNewTab: Boolean
 )
 
 data class LinkCarouselData(

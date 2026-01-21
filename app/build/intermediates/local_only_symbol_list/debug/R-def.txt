@@ -28,6 +28,7 @@ id categoryIcon
 id categoryTitle
 id container
 id itemImage
+id itemSubTitle
 id itemTitle
 id ivBanner
 id progressBar
@@ -48,11 +49,13 @@ id webview
 layout activity_main
 layout activity_second
 layout item_accommodation
+layout item_card_carousel_item
 layout item_category
 layout item_link_carousel_item
 layout item_slider
 layout item_widget_accommodation
 layout item_widget_banner
+layout item_widget_card_carousel
 layout item_widget_categories
 layout item_widget_link_carousel
 layout item_widget_slider
