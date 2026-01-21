@@ -55,8 +55,8 @@ class AccommodationAdapter(private val items: List<AccommodationItem>) : Recycle
         val imageUrl = item.images.firstOrNull() ?: ""
         holder.image.load(imageUrl) {
             crossfade(true)
-            placeholder(R.color.purple_200)
-            error(R.color.purple_200)
+            placeholder(R.color.gray_placeholder)
+            error(R.color.gray_placeholder)
         }
     }
 

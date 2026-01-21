@@ -31,7 +31,7 @@ class CardCarouselAdapter(private val items: List<CardCarouselItem>) : RecyclerV
         
         holder.image.load(item.image) {
             crossfade(true)
-            placeholder(R.color.purple_200)
+            placeholder(R.color.gray_placeholder)
         }
     }
 

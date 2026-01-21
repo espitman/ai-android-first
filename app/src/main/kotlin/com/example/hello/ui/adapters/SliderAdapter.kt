@@ -27,7 +27,7 @@ class SliderAdapter(private val items: List<SliderItem>) : RecyclerView.Adapter<
         holder.titleView.text = item.title
         holder.imageView.load(item.image) {
             crossfade(true)
-            placeholder(android.R.drawable.ic_menu_gallery)
+            placeholder(R.color.gray_placeholder)
         }
     }
 

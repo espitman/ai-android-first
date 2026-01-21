@@ -8,28 +8,16 @@
         "source": "/Users/espitman/.gradle/daemon/8.11.1/com.example.hello.app-main-35:/font/vazirmatn_regular.ttf"
     },
     {
-        "merged": "/Users/espitman/.gradle/daemon/8.11.1/com.example.hello.app-merged_res-33:/layout_item_badge_item.xml.flat",
-        "source": "/Users/espitman/.gradle/daemon/8.11.1/com.example.hello.app-main-35:/layout/item_badge_item.xml"
-    },
-    {
         "merged": "/Users/espitman/.gradle/daemon/8.11.1/com.example.hello.app-merged_res-33:/layout_item_category.xml.flat",
         "source": "/Users/espitman/.gradle/daemon/8.11.1/com.example.hello.app-main-35:/layout/item_category.xml"
     },
     {
-        "merged": "/Users/espitman/.gradle/daemon/8.11.1/com.example.hello.app-merged_res-33:/layout_item_widget_slider.xml.flat",
-        "source": "/Users/espitman/.gradle/daemon/8.11.1/com.example.hello.app-main-35:/layout/item_widget_slider.xml"
-    },
-    {
-        "merged": "/Users/espitman/.gradle/daemon/8.11.1/com.example.hello.app-merged_res-33:/layout_activity_second.xml.flat",
-        "source": "/Users/espitman/.gradle/daemon/8.11.1/com.example.hello.app-main-35:/layout/activity_second.xml"
+        "merged": "com.example.hello.app-merged_res-33:/layout_item_widget_categories.xml.flat",
+        "source": "com.example.hello.app-main-35:/layout/item_widget_categories.xml"
     },
     {
         "merged": "/Users/espitman/.gradle/daemon/8.11.1/com.example.hello.app-merged_res-33:/layout_item_accommodation.xml.flat",
         "source": "/Users/espitman/.gradle/daemon/8.11.1/com.example.hello.app-main-35:/layout/item_accommodation.xml"
-    },
-    {
-        "merged": "/Users/espitman/.gradle/daemon/8.11.1/com.example.hello.app-merged_res-33:/layout_item_widget_card_carousel.xml.flat",
-        "source": "/Users/espitman/.gradle/daemon/8.11.1/com.example.hello.app-main-35:/layout/item_widget_card_carousel.xml"
     },
     {
         "merged": "/Users/espitman/.gradle/daemon/8.11.1/com.example.hello.app-merged_res-33:/layout_item_widget_link_carousel.xml.flat",
@@ -40,20 +28,8 @@
         "source": "/Users/espitman/.gradle/daemon/8.11.1/com.example.hello.app-main-35:/layout/activity_main.xml"
     },
     {
-        "merged": "com.example.hello.app-merged_res-33:/layout_item_badge_item.xml.flat",
-        "source": "com.example.hello.app-main-35:/layout/item_badge_item.xml"
-    },
-    {
-        "merged": "/Users/espitman/.gradle/daemon/8.11.1/com.example.hello.app-merged_res-33:/layout_item_link_carousel_item.xml.flat",
-        "source": "/Users/espitman/.gradle/daemon/8.11.1/com.example.hello.app-main-35:/layout/item_link_carousel_item.xml"
-    },
-    {
-        "merged": "/Users/espitman/.gradle/daemon/8.11.1/com.example.hello.app-merged_res-33:/font_vazirmatn.xml.flat",
-        "source": "/Users/espitman/.gradle/daemon/8.11.1/com.example.hello.app-main-35:/font/vazirmatn.xml"
-    },
-    {
-        "merged": "com.example.hello.app-merged_res-33:/drawable_bg_badge.xml.flat",
-        "source": "com.example.hello.app-main-35:/drawable/bg_badge.xml"
+        "merged": "/Users/espitman/.gradle/daemon/8.11.1/com.example.hello.app-merged_res-33:/drawable_bg_badge.xml.flat",
+        "source": "/Users/espitman/.gradle/daemon/8.11.1/com.example.hello.app-main-35:/drawable/bg_badge.xml"
     },
     {
         "merged": "/Users/espitman/.gradle/daemon/8.11.1/com.example.hello.app-merged_res-33:/layout_item_slider.xml.flat",
@@ -72,20 +48,56 @@
         "source": "/Users/espitman/.gradle/daemon/8.11.1/com.example.hello.app-main-35:/layout/item_card_carousel_item.xml"
     },
     {
-        "merged": "/Users/espitman/.gradle/daemon/8.11.1/com.example.hello.app-merged_res-33:/layout_item_widget_banner.xml.flat",
-        "source": "/Users/espitman/.gradle/daemon/8.11.1/com.example.hello.app-main-35:/layout/item_widget_banner.xml"
+        "merged": "com.example.hello.app-merged_res-33:/layout_item_widget_card_carousel.xml.flat",
+        "source": "com.example.hello.app-main-35:/layout/item_widget_card_carousel.xml"
     },
     {
         "merged": "/Users/espitman/.gradle/daemon/8.11.1/com.example.hello.app-merged_res-33:/layout_item_widget_categories.xml.flat",
         "source": "/Users/espitman/.gradle/daemon/8.11.1/com.example.hello.app-main-35:/layout/item_widget_categories.xml"
     },
     {
-        "merged": "/Users/espitman/.gradle/daemon/8.11.1/com.example.hello.app-merged_res-33:/layout_item_widget_text.xml.flat",
-        "source": "/Users/espitman/.gradle/daemon/8.11.1/com.example.hello.app-main-35:/layout/item_widget_text.xml"
-    },
-    {
         "merged": "/Users/espitman/.gradle/daemon/8.11.1/com.example.hello.app-merged_res-33:/layout_item_widget_badges.xml.flat",
         "source": "/Users/espitman/.gradle/daemon/8.11.1/com.example.hello.app-main-35:/layout/item_widget_badges.xml"
+    },
+    {
+        "merged": "/Users/espitman/.gradle/daemon/8.11.1/com.example.hello.app-merged_res-33:/layout_item_badge_item.xml.flat",
+        "source": "/Users/espitman/.gradle/daemon/8.11.1/com.example.hello.app-main-35:/layout/item_badge_item.xml"
+    },
+    {
+        "merged": "/Users/espitman/.gradle/daemon/8.11.1/com.example.hello.app-merged_res-33:/layout_item_widget_slider.xml.flat",
+        "source": "/Users/espitman/.gradle/daemon/8.11.1/com.example.hello.app-main-35:/layout/item_widget_slider.xml"
+    },
+    {
+        "merged": "/Users/espitman/.gradle/daemon/8.11.1/com.example.hello.app-merged_res-33:/layout_activity_second.xml.flat",
+        "source": "/Users/espitman/.gradle/daemon/8.11.1/com.example.hello.app-main-35:/layout/activity_second.xml"
+    },
+    {
+        "merged": "com.example.hello.app-merged_res-33:/layout_item_widget_badges.xml.flat",
+        "source": "com.example.hello.app-main-35:/layout/item_widget_badges.xml"
+    },
+    {
+        "merged": "com.example.hello.app-merged_res-33:/layout_item_widget_link_carousel.xml.flat",
+        "source": "com.example.hello.app-main-35:/layout/item_widget_link_carousel.xml"
+    },
+    {
+        "merged": "/Users/espitman/.gradle/daemon/8.11.1/com.example.hello.app-merged_res-33:/layout_item_widget_card_carousel.xml.flat",
+        "source": "/Users/espitman/.gradle/daemon/8.11.1/com.example.hello.app-main-35:/layout/item_widget_card_carousel.xml"
+    },
+    {
+        "merged": "/Users/espitman/.gradle/daemon/8.11.1/com.example.hello.app-merged_res-33:/layout_item_link_carousel_item.xml.flat",
+        "source": "/Users/espitman/.gradle/daemon/8.11.1/com.example.hello.app-main-35:/layout/item_link_carousel_item.xml"
+    },
+    {
+        "merged": "/Users/espitman/.gradle/daemon/8.11.1/com.example.hello.app-merged_res-33:/font_vazirmatn.xml.flat",
+        "source": "/Users/espitman/.gradle/daemon/8.11.1/com.example.hello.app-main-35:/font/vazirmatn.xml"
+    },
+    {
+        "merged": "/Users/espitman/.gradle/daemon/8.11.1/com.example.hello.app-merged_res-33:/layout_item_widget_banner.xml.flat",
+        "source": "/Users/espitman/.gradle/daemon/8.11.1/com.example.hello.app-main-35:/layout/item_widget_banner.xml"
+    },
+    {
+        "merged": "/Users/espitman/.gradle/daemon/8.11.1/com.example.hello.app-merged_res-33:/layout_item_widget_text.xml.flat",
+        "source": "/Users/espitman/.gradle/daemon/8.11.1/com.example.hello.app-main-35:/layout/item_widget_text.xml"
     },
     {
         "merged": "/Users/espitman/.gradle/daemon/8.11.1/com.example.hello.app-merged_res-33:/drawable_rounded_corner_bg.xml.flat",

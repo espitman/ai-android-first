@@ -72,13 +72,17 @@ class MainAdapter(private val widgets: List<Widget>) : RecyclerView.Adapter<Recy
             is BannerViewHolder -> {
                 val banner = widget.banner
                 if (banner != null) {
-                    holder.imageView.load(banner.gifUrl)
+                    holder.imageView.load(banner.gifUrl) {
+                        placeholder(R.color.gray_placeholder)
+                        error(R.color.gray_placeholder)
+                    }
                 }
             }
             is LinkCarouselViewHolder -> {
                 val data = widget.linkCarousel
                 if (data != null) {
                     holder.title.text = data.title
+                    holder.title.visibility = if (data.title.isNullOrEmpty()) View.GONE else View.VISIBLE
                     holder.subTitle.text = data.subTitle
                     holder.subTitle.visibility = if (data.subTitle.isNullOrEmpty()) View.GONE else View.VISIBLE
                     
@@ -100,6 +104,7 @@ class MainAdapter(private val widgets: List<Widget>) : RecyclerView.Adapter<Recy
                 val data = widget.cardCarousel
                 if (data != null) {
                     holder.title.text = data.title
+                    holder.title.visibility = if (data.title.isNullOrEmpty()) View.GONE else View.VISIBLE
                     holder.subTitle.text = data.subTitle
                     holder.subTitle.visibility = if (data.subTitle.isNullOrEmpty()) View.GONE else View.VISIBLE
                     

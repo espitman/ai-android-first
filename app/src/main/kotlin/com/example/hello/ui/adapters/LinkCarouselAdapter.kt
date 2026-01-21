@@ -27,7 +27,7 @@ class LinkCarouselAdapter(private val items: List<LinkCarouselItem>) : RecyclerV
         holder.title.text = item.title
         holder.image.load(item.image) {
             crossfade(true)
-            placeholder(R.color.purple_200)
+            placeholder(R.color.gray_placeholder)
         }
     }
 

@@ -7,4 +7,5 @@
     android:clipChildren="false"
     android:layoutDirection="rtl"
     android:paddingHorizontal="8dp"
+    android:paddingTop="16dp"
     android:layout_marginBottom="16dp" />
