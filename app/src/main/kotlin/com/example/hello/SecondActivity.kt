@@ -7,7 +7,7 @@ class SecondActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_second)
-        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        supportActionBar?.hide()
 
         val myWebView: android.webkit.WebView = findViewById(R.id.webview)
         myWebView.settings.apply {
@@ -25,5 +25,16 @@ class SecondActivity : AppCompatActivity() {
         }
         android.webkit.CookieManager.getInstance().setAcceptCookie(true)
         myWebView.loadUrl("https://www.jabama.com")
+
+        onBackPressedDispatcher.addCallback(this, object : androidx.activity.OnBackPressedCallback(true) {
+            override fun handleOnBackPressed() {
+                if (myWebView.canGoBack()) {
+                    myWebView.goBack()
+                } else {
+                    isEnabled = false
+                    onBackPressedDispatcher.onBackPressed()
+                }
+            }
+        })
     }
 }
