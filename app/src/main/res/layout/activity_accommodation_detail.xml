@@ -40,150 +40,232 @@
 
     </LinearLayout>
 
-    <androidx.coordinatorlayout.widget.CoordinatorLayout
+    <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <com.google.android.material.appbar.AppBarLayout
-            android:id="@+id/appBar"
-            android:layout_width="match_parent"
-            android:layout_height="300dp"
-            android:background="@color/white">
-
-            <com.google.android.material.appbar.CollapsingToolbarLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                app:layout_scrollFlags="scroll|exitUntilCollapsed">
-
-                <androidx.viewpager2.widget.ViewPager2
-                android:id="@+id/vpImageAlbum"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:transitionName="shared_image"
-                android:layoutDirection="rtl"
-                app:layout_collapseMode="parallax" />
-
-            <TextView
-                android:id="@+id/tvImageCount"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="bottom|right"
-                android:layout_margin="16dp"
-                android:background="@drawable/rounded_corner_bg"
-                android:backgroundTint="#80000000"
-                android:paddingHorizontal="10dp"
-                android:paddingVertical="4dp"
-                android:textColor="#FFFFFF"
-                android:textSize="12sp"
-                android:visibility="gone"
-                app:layout_collapseMode="parallax" />
-
-            </com.google.android.material.appbar.CollapsingToolbarLayout>
-        </com.google.android.material.appbar.AppBarLayout>
-
-        <androidx.core.widget.NestedScrollView
+        <include
+            android:id="@+id/skeletonLayout"
+            layout="@layout/skeleton_accommodation_detail"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+            android:visibility="visible" />
 
-            <LinearLayout
+        <androidx.coordinatorlayout.widget.CoordinatorLayout
+            android:id="@+id/contentLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone">
+
+            <com.google.android.material.appbar.AppBarLayout
+                android:id="@+id/appBar"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:padding="20dp"
-                android:layoutDirection="rtl">
+                android:layout_height="300dp"
+                android:background="@color/white">
 
-                <TextView
-                    android:id="@+id/tvDetailTitle"
+                <com.google.android.material.appbar.CollapsingToolbarLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textColor="#333"
-                    android:textSize="22sp"
-                    android:textStyle="bold"
-                    android:transitionName="shared_title" />
+                    android:layout_height="match_parent"
+                    app:layout_scrollFlags="scroll|exitUntilCollapsed">
+
+                    <androidx.viewpager2.widget.ViewPager2
+                        android:id="@+id/vpImageAlbum"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:transitionName="shared_image"
+                        android:layoutDirection="rtl"
+                        app:layout_collapseMode="parallax" />
+
+                    <TextView
+                        android:id="@+id/tvImageCount"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom|right"
+                        android:layout_margin="16dp"
+                        android:background="@drawable/rounded_corner_bg"
+                        android:backgroundTint="#80000000"
+                        android:paddingHorizontal="10dp"
+                        android:paddingVertical="4dp"
+                        android:textColor="#FFFFFF"
+                        android:textSize="12sp"
+                        android:visibility="gone"
+                        app:layout_collapseMode="parallax" />
+
+                    <TextView
+                        android:id="@+id/tvAccommodationCode"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="top|left"
+                        android:layout_margin="16dp"
+                        android:background="@drawable/rounded_corner_bg"
+                        android:backgroundTint="#B3000000"
+                        android:paddingHorizontal="10dp"
+                        android:paddingVertical="4dp"
+                        android:textColor="#FFFFFF"
+                        android:textSize="12sp"
+                        app:layout_collapseMode="parallax" />
+
+                </com.google.android.material.appbar.CollapsingToolbarLayout>
+            </com.google.android.material.appbar.AppBarLayout>
+
+            <androidx.core.widget.NestedScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:gravity="center_vertical"
-                    android:layout_marginTop="8dp">
-
-                    <ImageView
-                        android:layout_width="16dp"
-                        android:layout_height="16dp"
-                        android:src="@drawable/ic_star" />
+                    android:orientation="vertical"
+                    android:padding="20dp"
+                    android:layoutDirection="rtl">
 
                     <TextView
-                        android:id="@+id/tvRatingScore"
-                        android:layout_width="wrap_content"
+                        android:id="@+id/tvDetailTitle"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="4dp"
-                        android:text="۴.۴"
                         android:textColor="#333"
+                        android:textSize="22sp"
                         android:textStyle="bold"
-                        android:textSize="14sp" />
+                        android:transitionName="shared_title" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:layout_marginTop="8dp">
+
+                        <ImageView
+                            android:layout_width="16dp"
+                            android:layout_height="16dp"
+                            android:src="@drawable/ic_star" />
+
+                        <TextView
+                            android:id="@+id/tvRatingScore"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="4dp"
+                            android:text="۴.۴"
+                            android:textColor="#333"
+                            android:textStyle="bold"
+                            android:textSize="14sp" />
+
+                        <TextView
+                            android:id="@+id/tvReviewCount"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="4dp"
+                            android:text="(۱۱۸ نظر ثبت شده)"
+                            android:textColor="#888"
+                            android:textSize="14sp" />
+
+                        <View
+                            android:layout_width="4dp"
+                            android:layout_height="4dp"
+                            android:layout_marginHorizontal="8dp"
+                            android:background="@drawable/rounded_corner_bg"
+                            android:backgroundTint="#DDD" />
+
+                        <ImageView
+                            android:layout_width="16dp"
+                            android:layout_height="16dp"
+                            android:src="@drawable/ic_location" />
+
+                        <TextView
+                            android:id="@+id/tvLocation"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="4dp"
+                            android:text="استان هرمزگان، قشم"
+                            android:textColor="#333"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
 
                     <TextView
-                        android:id="@+id/tvReviewCount"
+                        android:id="@+id/tvDiscountBadge"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="4dp"
-                        android:text="(۱۱۸ نظر ثبت شده)"
-                        android:textColor="#888"
-                        android:textSize="14sp" />
-
-                    <View
-                        android:layout_width="4dp"
-                        android:layout_height="4dp"
-                        android:layout_marginHorizontal="8dp"
+                        android:layout_marginTop="16dp"
+                        android:layout_gravity="center_horizontal"
                         android:background="@drawable/rounded_corner_bg"
-                        android:backgroundTint="#DDD" />
+                        android:backgroundTint="#FF4455"
+                        android:paddingHorizontal="24dp"
+                        android:paddingVertical="12dp"
+                        android:text="٪ تا ۱۵ درصد تخفیف"
+                        android:textColor="#FFFFFF"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:visibility="gone" />
 
-                    <ImageView
-                        android:layout_width="16dp"
-                        android:layout_height="16dp"
-                        android:src="@drawable/ic_location" />
 
-                    <TextView
-                        android:id="@+id/tvLocation"
-                        android:layout_width="wrap_content"
+
+                    <!-- Divider -->
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginTop="24dp"
+                        android:background="#F0F0F0" />
+
+                    <!-- Host Section -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="4dp"
-                        android:text="استان هرمزگان، قشم"
-                        android:textColor="#333"
-                        android:textSize="14sp"
-                        android:textStyle="bold" />
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:paddingVertical="20dp">
+
+                        <com.google.android.material.imageview.ShapeableImageView
+                            android:id="@+id/ivHostAvatar"
+                            android:layout_width="64dp"
+                            android:layout_height="64dp"
+                            android:scaleType="centerCrop"
+                            android:padding="2dp"
+                            android:layout_marginEnd="16dp"
+                            app:strokeColor="#1d2830"
+                            app:strokeWidth="1.5dp"
+                            app:shapeAppearanceOverlay="@style/CircleImage"
+                            android:src="@color/gray_placeholder" />
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/tvAccTypeFa"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="نوع اقامتگاه"
+                                android:textColor="#222"
+                                android:textSize="18sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/tvHostSubtitle"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="4dp"
+                                android:text="اجاره سوئیت در قشم به میزبانی ..."
+                                android:textColor="#444"
+                                android:textSize="14sp" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <!-- Divider -->
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="#F0F0F0" />
 
                 </LinearLayout>
+            </androidx.core.widget.NestedScrollView>
 
-                <TextView
-                    android:id="@+id/tvDiscountBadge"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
-                    android:layout_gravity="center_horizontal"
-                    android:background="@drawable/rounded_corner_bg"
-                    android:backgroundTint="#FF4455"
-                    android:paddingHorizontal="24dp"
-                    android:paddingVertical="12dp"
-                    android:text="٪ تا ۱۵ درصد تخفیف"
-                    android:textColor="#FFFFFF"
-                    android:textSize="16sp"
-                    android:textStyle="bold"
-                    android:visibility="gone" />
-
-                <TextView
-                    android:id="@+id/tvAccommodationCode"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
-                    android:text="کد اقامتگاه: "
-                    android:textColor="#888"
-                    android:textSize="14sp" />
-
-            </LinearLayout>
-        </androidx.core.widget.NestedScrollView>
-
-    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+        </androidx.coordinatorlayout.widget.CoordinatorLayout>
+    </FrameLayout>
 </LinearLayout>

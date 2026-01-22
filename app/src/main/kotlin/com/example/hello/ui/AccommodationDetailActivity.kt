@@ -4,12 +4,14 @@ import android.os.Bundle
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import androidx.viewpager2.widget.ViewPager2
 import com.example.hello.R
 import com.example.hello.data.network.RetrofitClient
 import com.example.hello.ui.adapters.ImageAlbumAdapter
+import coil.load
 import kotlinx.coroutines.launch
 
 class AccommodationDetailActivity : AppCompatActivity() {
@@ -22,10 +24,16 @@ class AccommodationDetailActivity : AppCompatActivity() {
         val accId = intent.getStringExtra("ACCOMMODATION_CODE") ?: ""
         val initialTitle = intent.getStringExtra("ACCOMMODATION_TITLE") ?: ""
         
+        Log.d("AccDetail", "Loading detail for ID: $accId")
+        
         findViewById<TextView>(R.id.tvDetailTitle).text = initialTitle
         findViewById<ImageView>(R.id.btnBack).setOnClickListener { onBackPressed() }
 
         if (accId.isNotEmpty()) {
+            val skeleton = findViewById<View>(R.id.skeletonLayout)
+            val pulseAnim = android.view.animation.AnimationUtils.loadAnimation(this, R.anim.skeleton_pulse)
+            skeleton.startAnimation(pulseAnim)
+            
             loadAccommodationDetails(accId)
         }
     }
@@ -35,21 +43,39 @@ class AccommodationDetailActivity : AppCompatActivity() {
             try {
                 // Using the specific URL requested by user
                 val url = "https://gw.jabama.com/api/v1/accommodations/$id?reversePeriods=true&withPanoramic=true"
+                Log.d("AccDetail", "Calling URL: $url")
                 val response = RetrofitClient.getApiService().getAccommodationDetails(url)
                 
                 if (response.success) {
-                    val item = response.result.item
-                    updateUI(item)
+                    Log.d("AccDetail", "API Success: ${response.result.item.title}")
+                    updateUI(response.result)
+                } else {
+                    Log.e("AccDetail", "API Success False")
+                    val skeleton = findViewById<View>(R.id.skeletonLayout)
+                    skeleton.clearAnimation()
+                    skeleton.visibility = View.GONE
                 }
             } catch (e: Exception) {
+                Log.e("AccDetail", "API Error: ${e.message}")
                 e.printStackTrace()
+                val skeleton = findViewById<View>(R.id.skeletonLayout)
+                skeleton.clearAnimation()
+                skeleton.visibility = View.GONE
             }
         }
     }
 
-    private fun updateUI(item: com.example.hello.data.models.AccommodationDetailItem) {
+    private fun updateUI(result: com.example.hello.data.models.AccommodationDetailResult) {
+        val item = result.item
+        val meta = result.meta
+        
+        val skeleton = findViewById<View>(R.id.skeletonLayout)
+        skeleton.clearAnimation()
+        skeleton.visibility = View.GONE
+        findViewById<View>(R.id.contentLayout).visibility = View.VISIBLE
+        
         findViewById<TextView>(R.id.tvDetailTitle).text = item.title
-        findViewById<TextView>(R.id.tvAccommodationCode).text = "کد اقامتگاه: ${item.code}"
+        findViewById<TextView>(R.id.tvAccommodationCode).text = "کد: ${item.code}"
 
         // Rating & Reviews
         item.rateAndReview?.let {
@@ -72,6 +98,56 @@ class AccommodationDetailActivity : AppCompatActivity() {
             tvDiscount.text = "٪ تا ${formatNumber(discount)} درصد تخفیف"
         } else {
             tvDiscount.visibility = View.GONE
+        }
+
+        // Host Section
+        item.typeDetails?.let {
+            findViewById<TextView>(R.id.tvAccTypeFa).text = it.title_fa
+        }
+        
+        var hostName = ""
+        var hostAvatar = ""
+
+        // Priority 1: Meta HostInfo (Highest accuracy)
+        meta?.hostInfo?.let { hi ->
+            hostName = if (!hi.fullName.isNullOrEmpty()) hi.fullName 
+                       else "${hi.firstName ?: ""} ${hi.lastName ?: ""}".trim()
+            hostAvatar = hi.avatar ?: ""
+        }
+
+        // Priority 2: Item OwnerName
+        if (hostName.isEmpty()) hostName = item.ownerName ?: ""
+
+        // Priority 3: Dynamic host element check (fallback)
+        if (hostName.isEmpty() || hostAvatar.isEmpty()) {
+            item.host?.let { hostElement ->
+                if (hostElement.isJsonObject) {
+                    val hostObj = hostElement.asJsonObject
+                    if (hostName.isEmpty() && hostObj.has("fullName")) {
+                        hostName = hostObj.get("fullName").asString
+                    }
+                    if (hostAvatar.isEmpty() && hostObj.has("avatar")) {
+                        hostAvatar = hostObj.get("avatar").asString
+                    }
+                }
+            }
+        }
+
+        if (hostName.isEmpty()) hostName = "میزبان جاباما"
+        
+        val cityName = item.placeOfResidence?.area?.city?.name?.fa ?: ""
+        val typeName = item.typeDetails?.title_fa ?: "اقامتگاه"
+        findViewById<TextView>(R.id.tvHostSubtitle).text = "اجاره $typeName در $cityName به میزبانی $hostName"
+        
+        val ivAvatar = findViewById<ImageView>(R.id.ivHostAvatar)
+        if (hostAvatar.isNotEmpty()) {
+            ivAvatar.load(hostAvatar) {
+                crossfade(true)
+                placeholder(R.color.gray_placeholder)
+                error(R.color.gray_placeholder)
+            }
+        } else {
+            ivAvatar.setImageResource(R.color.gray_placeholder)
         }
 
         // Image Album sorted by imagesSort
