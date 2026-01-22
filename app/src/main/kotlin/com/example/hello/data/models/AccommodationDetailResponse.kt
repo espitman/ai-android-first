@@ -16,9 +16,33 @@ data class AccommodationDetailItem(
     val description: String,
     val placeImages: List<AccommodationPlaceImage>,
     val imagesSort: List<String>,
+    val placeOfResidence: PlaceOfResidence? = null,
+    val maxDiscountPercent: Int? = null,
     val price: AccommodationPriceData? = null,
     val capacity: AccommodationCapacity? = null,
     val rateAndReview: AccommodationRateAndReview? = null
+)
+
+data class PlaceOfResidence(
+    val area: ResidenceArea? = null
+)
+
+data class ResidenceArea(
+    val city: ResidenceCity? = null
+)
+
+data class ResidenceCity(
+    val name: LocalizedName? = null,
+    val province: ResidenceProvince? = null
+)
+
+data class ResidenceProvince(
+    val name: LocalizedName? = null
+)
+
+data class LocalizedName(
+    val fa: String,
+    val en: String
 )
 
 data class AccommodationPlaceImage(

@@ -51,6 +51,29 @@ class AccommodationDetailActivity : AppCompatActivity() {
         findViewById<TextView>(R.id.tvDetailTitle).text = item.title
         findViewById<TextView>(R.id.tvAccommodationCode).text = "کد اقامتگاه: ${item.code}"
 
+        // Rating & Reviews
+        item.rateAndReview?.let {
+            findViewById<TextView>(R.id.tvRatingScore).text = formatNumber(it.score)
+            findViewById<TextView>(R.id.tvReviewCount).text = "(${formatNumber(it.count)} نظر ثبت شده)"
+        }
+
+        // Location
+        item.placeOfResidence?.area?.city?.let { city ->
+            val cityName = city.name?.fa ?: ""
+            val provinceName = city.province?.name?.fa ?: ""
+            findViewById<TextView>(R.id.tvLocation).text = "استان $provinceName، $cityName"
+        }
+
+        // Discount
+        val discount = item.maxDiscountPercent ?: 0
+        val tvDiscount = findViewById<TextView>(R.id.tvDiscountBadge)
+        if (discount > 0) {
+            tvDiscount.visibility = View.VISIBLE
+            tvDiscount.text = "٪ تا ${formatNumber(discount)} درصد تخفیف"
+        } else {
+            tvDiscount.visibility = View.GONE
+        }
+
         // Image Album sorted by imagesSort
         val sortedImages = item.placeImages
             .sortedBy { image -> 
@@ -92,6 +115,10 @@ class AccommodationDetailActivity : AppCompatActivity() {
     }
 
     private fun formatNumber(number: Int): String {
+        return java.text.NumberFormat.getInstance(java.util.Locale("fa", "IR")).format(number)
+    }
+
+    private fun formatNumber(number: Double): String {
         return java.text.NumberFormat.getInstance(java.util.Locale("fa", "IR")).format(number)
     }
 }
