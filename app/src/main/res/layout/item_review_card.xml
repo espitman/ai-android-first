@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="320dp"
+    android:layout_height="210dp"
+    android:layout_margin="8dp"
+    app:cardCornerRadius="16dp"
+    app:cardElevation="0dp"
+    app:cardBackgroundColor="@color/white"
+    app:strokeColor="#DDDDDD"
+    app:strokeWidth="1dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp"
+        android:layoutDirection="rtl">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/ivUserAvatar"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:scaleType="centerCrop"
+                android:src="@color/gray_placeholder"
+                app:shapeAppearanceOverlay="@style/CircleImage" />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginStart="12dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tvUserName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#1d2830"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:fontFamily="@font/vazirmatn" />
+
+                <TextView
+                    android:id="@+id/tvStayDate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:textColor="#888"
+                    android:textSize="13sp"
+                    android:fontFamily="@font/vazirmatn" />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tvUserNameAbbr"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:background="@drawable/rounded_corner_bg"
+                android:backgroundTint="#F5F5F5"
+                android:gravity="center"
+                android:textColor="#1d2830"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:visibility="gone" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:id="@+id/llStars"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageView android:layout_width="14dp" android:layout_height="14dp" android:src="@drawable/ic_star" />
+                <ImageView android:layout_width="14dp" android:layout_height="14dp" android:src="@drawable/ic_star" />
+                <ImageView android:layout_width="14dp" android:layout_height="14dp" android:src="@drawable/ic_star" />
+                <ImageView android:layout_width="14dp" android:layout_height="14dp" android:src="@drawable/ic_star" />
+                <ImageView android:layout_width="14dp" android:layout_height="14dp" android:src="@drawable/ic_star" />
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="4dp"
+                android:layout_height="4dp"
+                android:layout_marginHorizontal="8dp"
+                android:background="@drawable/rounded_corner_bg"
+                android:backgroundTint="#DDD" />
+
+            <TextView
+                android:id="@+id/tvStayDuration"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#1d2830"
+                android:textSize="13sp"
+                android:textStyle="bold"
+                android:fontFamily="@font/vazirmatn" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tvComment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:ellipsize="end"
+            android:lineSpacingExtra="4dp"
+            android:maxLines="4"
+            android:textColor="#444"
+            android:textSize="14sp"
+            android:fontFamily="@font/vazirmatn" />
+
+    </LinearLayout>
+
+</com.google.android.material.card.MaterialCardView>

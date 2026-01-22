@@ -28,10 +28,43 @@ data class HostInfo(
 )
 
 data class AccommodationReviews(
+    val id: String? = null,
     val overalRating: Double? = null,
     val reviewsCount: Int? = null,
-    val rating: Double? = null
+    val rating: Double? = null,
+    val reviews: List<ReviewDetail>? = null
 )
+
+@Parcelize
+data class ReviewDetail(
+    val id: Long? = null,
+    val comment: String? = null,
+    val rating: Int? = null,
+    val overalRating: Int? = null,
+    val user: RelatedUserInfo? = null,
+    val subTitles: List<String>? = null,
+    val reviewInfo: List<ReviewInfoItem>? = null,
+    val response: HostResponse? = null
+) : Parcelable
+
+@Parcelize
+data class ReviewInfoItem(
+    val icon: String? = null,
+    val text: String? = null
+) : Parcelable
+
+@Parcelize
+data class HostResponse(
+    val body: String? = null,
+    val responseDate: String? = null
+) : Parcelable
+
+@Parcelize
+data class RelatedUserInfo(
+    val id: Long? = null,
+    val name: String? = null,
+    val avatar: String? = null
+) : Parcelable
 
 data class AccommodationDetailItem(
     val id: String,

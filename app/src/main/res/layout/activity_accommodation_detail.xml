@@ -782,6 +782,98 @@
                                          android:orientation="vertical" />
 
                                  </LinearLayout>
+
+                                 <!-- Divider -->
+                                 <View
+                                     android:layout_width="match_parent"
+                                     android:layout_height="1dp"
+                                     android:background="#F0F0F0" />
+
+                                 <!-- Reviews Section -->
+                                 <LinearLayout
+                                     android:id="@+id/llReviewsSection"
+                                     android:layout_width="match_parent"
+                                     android:layout_height="wrap_content"
+                                     android:orientation="vertical"
+                                     android:paddingVertical="24dp"
+                                     android:visibility="gone">
+
+                                     <LinearLayout
+                                         android:layout_width="match_parent"
+                                         android:layout_height="wrap_content"
+                                         android:gravity="center_vertical"
+                                         android:orientation="horizontal">
+
+                                         <ImageView
+                                             android:layout_width="24dp"
+                                             android:layout_height="24dp"
+                                             android:src="@drawable/ic_star"
+                                             app:tint="#1d2830"
+                                             android:layout_marginEnd="12dp" />
+
+                                         <LinearLayout
+                                             android:layout_width="0dp"
+                                             android:layout_height="wrap_content"
+                                             android:layout_weight="1"
+                                             android:orientation="vertical">
+
+                                             <TextView
+                                                 android:id="@+id/tvOverallRating"
+                                                 android:layout_width="wrap_content"
+                                                 android:layout_height="wrap_content"
+                                                 android:text="امتیاز کلی اقامتگاه ۴.۵ از ۵"
+                                                 android:textColor="#1d2830"
+                                                 android:textSize="18sp"
+                                                 android:textStyle="bold"
+                                                 android:fontFamily="@font/vazirmatn" />
+
+                                             <TextView
+                                                 android:id="@+id/tvReviewsHeaderCount"
+                                                 android:layout_width="wrap_content"
+                                                 android:layout_height="wrap_content"
+                                                 android:layout_marginTop="4dp"
+                                                 android:text="از ۱۵۵۹ نظر ثبت شده"
+                                                 android:textColor="#444"
+                                                 android:textSize="14sp"
+                                                 android:fontFamily="@font/vazirmatn" />
+
+                                         </LinearLayout>
+
+                                     </LinearLayout>
+
+                                     <androidx.recyclerview.widget.RecyclerView
+                                         android:id="@+id/rvReviews"
+                                         android:layout_width="match_parent"
+                                         android:layout_height="wrap_content"
+                                         android:layout_marginTop="20dp"
+                                         android:clipToPadding="false"
+                                         android:orientation="horizontal"
+                                         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                                         android:overScrollMode="never" />
+
+                                     <LinearLayout
+                                         android:id="@+id/btnShowAllReviews"
+                                         android:layout_width="match_parent"
+                                         android:layout_height="52dp"
+                                         android:layout_marginTop="24dp"
+                                         android:gravity="center"
+                                         android:background="@drawable/bg_button_grey"
+                                         android:clickable="true"
+                                         android:focusable="true">
+
+                                         <TextView
+                                             android:id="@+id/tvShowAllReviews"
+                                             android:layout_width="wrap_content"
+                                             android:layout_height="wrap_content"
+                                             android:text="مشاهده همه نظرات (۱۵۵۹ مورد)"
+                                             android:textColor="#1d2830"
+                                             android:textSize="15sp"
+                                             android:textStyle="bold"
+                                             android:fontFamily="@font/vazirmatn" />
+
+                                     </LinearLayout>
+
+                                 </LinearLayout>
                              </LinearLayout>
                 </LinearLayout>
             </androidx.core.widget.NestedScrollView>

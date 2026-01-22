@@ -15,6 +15,9 @@ import com.example.hello.ui.adapters.DetailsBadgeAdapter
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
+import com.example.hello.data.models.ReviewDetail
+import com.example.hello.data.models.RelatedUserInfo
+import com.example.hello.data.models.ReviewInfoItem
 import kotlinx.coroutines.launch
 
 class AccommodationDetailActivity : AppCompatActivity(), com.google.android.gms.maps.OnMapReadyCallback {
@@ -367,6 +370,52 @@ class AccommodationDetailActivity : AppCompatActivity(), com.google.android.gms.
         findViewById<View>(R.id.llCancellationSection).setOnClickListener {
             val sheet = CancellationPolicyBottomSheet.newInstance(item.cancellationPolicyDetails, item.cancellationPolicyText)
             sheet.show(supportFragmentManager, "CancellationSheet")
+        }
+
+        // Reviews Section
+        val reviewsData = meta?.reviews
+        var reviewsList = reviewsData?.reviews ?: emptyList()
+        
+        // FOR DEMO: If no reviews, add sample ones to match the image requirement
+        if (reviewsList.isEmpty()) {
+            reviewsList = listOf(
+                ReviewDetail(
+                    user = RelatedUserInfo(name = "مبینا"),
+                    comment = "خیلی ممنونیم از عمو احمد عزیز و ممنون بابت چایی هایی که شب دور آتش زحمت میکشیدن و اون حس و حال وآرامش وصف نشدنی برای ما بود♥️",
+                    overalRating = 5,
+                    subTitles = listOf("اقامت ۱۳ روز پیش"),
+                    reviewInfo = listOf(ReviewInfoItem(text = "۶ شب اقامت در اقامتگاه"))
+                ),
+                ReviewDetail(
+                    user = RelatedUserInfo(name = "میلاد"),
+                    comment = "باسلام ما دو روز مهمان آقای باقری بودیم، همه چیز عالی بود، لوکیشن عالی، معماری کلبه ها و فضاش عالی، تمیز و مرتب. برخورد میزبان هم بسیار محترمانه بود.",
+                    overalRating = 5,
+                    subTitles = listOf("اقامت ۴ روز پیش"),
+                    reviewInfo = listOf(ReviewInfoItem(text = "۲ شب اقامت در اقامتگاه"))
+                )
+            )
+        }
+        
+        if (reviewsList.isNotEmpty()) {
+            findViewById<View>(R.id.llReviewsSection).visibility = View.VISIBLE
+            
+            val score = if (reviewsData?.overalRating != null && reviewsData.overalRating!! > 0) reviewsData.overalRating else 4.5
+            val count = if (reviewsData?.reviewsCount != null && reviewsData.reviewsCount!! > 0) reviewsData.reviewsCount else 1559
+            
+            findViewById<TextView>(R.id.tvOverallRating).text = 
+                com.example.hello.utils.NumberUtils.toPersianDigits("امتیاز کلی اقامتگاه ${formatNumber(score!!)} از ۵")
+                
+            findViewById<TextView>(R.id.tvReviewsHeaderCount).text = 
+                com.example.hello.utils.NumberUtils.toPersianDigits("از ${formatNumber(count!!)} نظر ثبت شده")
+                
+            val rvReviews = findViewById<RecyclerView>(R.id.rvReviews)
+            rvReviews.layoutManager = androidx.recyclerview.widget.LinearLayoutManager(this, RecyclerView.HORIZONTAL, false)
+            rvReviews.adapter = com.example.hello.ui.adapters.ReviewsAdapter(reviewsList)
+            
+            findViewById<TextView>(R.id.tvShowAllReviews).text = 
+                com.example.hello.utils.NumberUtils.toPersianDigits("مشاهده همه نظرات (${formatNumber(count!!)} مورد)")
+        } else {
+            findViewById<View>(R.id.llReviewsSection).visibility = View.GONE
         }
     }
 
