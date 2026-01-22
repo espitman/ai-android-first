@@ -60,8 +60,18 @@ data class AccommodationDetailItem(
     val amenities: List<Amenity>? = null,
     val missedAmenities: List<Amenity>? = null,
     val amenitiesV2: List<AmenityV2>? = null,
-    val nearbyCentersV2: List<NearbyCenterCategory>? = null
+    val nearbyCentersV2: List<NearbyCenterCategory>? = null,
+    val restrictedRules: List<AccommodationRule>? = null,
+    val negativeRestrictedRules: List<AccommodationRule>? = null
 )
+
+@Parcelize
+data class AccommodationRule(
+    val id: String? = null,
+    val name: String? = null,
+    val positive: String? = null,
+    val negative: String? = null
+) : Parcelable
 
 @Parcelize
 data class ExtraDescriptionItem(

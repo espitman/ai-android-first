@@ -550,7 +550,134 @@
                             android:layout_height="wrap_content"
                             android:orientation="vertical" />
 
-                    </LinearLayout>
+                        </LinearLayout>
+                        
+                        <!-- Divider -->
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:background="#F0F0F0" />
+                            
+                        <!-- Rules Section -->
+                        <LinearLayout
+                            android:id="@+id/llRulesSection"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:paddingVertical="24dp">
+
+                            <TextView
+                                android:id="@+id/tvRulesTitle"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="قوانین و مقررات"
+                                android:textColor="#1d2830"
+                                android:textSize="18sp"
+                                android:textStyle="bold"
+                                android:fontFamily="@font/vazirmatn" />
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="16dp"
+                                android:orientation="horizontal">
+
+                                <!-- Check-in Card (Right side in RTL) -->
+                                <LinearLayout
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:layout_marginEnd="8dp"
+                                    android:background="@drawable/bg_rule_card"
+                                    android:gravity="center"
+                                    android:orientation="vertical"
+                                    android:padding="16dp">
+
+                                    <LinearLayout
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:gravity="center_vertical"
+                                        android:orientation="horizontal">
+
+                                        <ImageView
+                                            android:layout_width="20dp"
+                                            android:layout_height="20dp"
+                                            android:layout_marginEnd="8dp"
+                                            android:src="@drawable/ic_clock_alarm"
+                                            app:tint="#D0D0D0" />
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="ساعت ورود"
+                                            android:textColor="#1d2830"
+                                            android:textSize="14sp"
+                                            android:textStyle="bold"
+                                            android:fontFamily="@font/vazirmatn" />
+
+                                    </LinearLayout>
+
+                                    <TextView
+                                        android:id="@+id/tvCheckInTime"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="8dp"
+                                        android:text="۰۳:۰۰ (بعدازظهر)"
+                                        android:textColor="#444"
+                                        android:textSize="14sp"
+                                        android:fontFamily="@font/vazirmatn" />
+
+                                </LinearLayout>
+
+                                <!-- Check-out Card (Left side in RTL) -->
+                                <LinearLayout
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:layout_marginStart="8dp"
+                                    android:background="@drawable/bg_rule_card"
+                                    android:gravity="center"
+                                    android:orientation="vertical"
+                                    android:padding="16dp">
+
+                                    <LinearLayout
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:gravity="center_vertical"
+                                        android:orientation="horizontal">
+
+                                        <ImageView
+                                            android:layout_width="20dp"
+                                            android:layout_height="20dp"
+                                            android:layout_marginEnd="8dp"
+                                            android:src="@drawable/ic_clock_alarm"
+                                            app:tint="#D0D0D0" />
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="ساعت خروج"
+                                            android:textColor="#1d2830"
+                                            android:textSize="14sp"
+                                            android:textStyle="bold"
+                                            android:fontFamily="@font/vazirmatn" />
+
+                                    </LinearLayout>
+
+                                    <TextView
+                                        android:id="@+id/tvCheckOutTime"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="8dp"
+                                        android:text="۱۲:۰۰ (ظهر)"
+                                        android:textColor="#444"
+                                        android:textSize="14sp"
+                                        android:fontFamily="@font/vazirmatn" />
+
+                                </LinearLayout>
+
+                            </LinearLayout>
+                        </LinearLayout>
                 </LinearLayout>
             </androidx.core.widget.NestedScrollView>
 

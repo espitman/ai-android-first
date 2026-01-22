@@ -323,6 +323,36 @@ class AccommodationDetailActivity : AppCompatActivity(), com.google.android.gms.
         } else {
             findViewById<View>(R.id.llLocationSection).visibility = View.GONE
         }
+
+        // Rules Section
+        findViewById<TextView>(R.id.tvRulesTitle).text = "قوانین و مقررات $typeName"
+        
+        findViewById<TextView>(R.id.tvCheckInTime).text = formatRuleTime(item.checkIn, true)
+        findViewById<TextView>(R.id.tvCheckOutTime).text = formatRuleTime(item.checkOut, false)
+    }
+
+    private fun formatRuleTime(time: String?, isCheckIn: Boolean): String {
+        if (time.isNullOrEmpty()) return if (isCheckIn) "۰۳:۰۰ (بعدازظهر)" else "۱۲:۰۰ (ظهر)"
+        
+        return try {
+            val parts = time.split(":")
+            val hour = parts[0].toInt()
+            val minute = parts[1]
+            
+            val period = when {
+                hour < 12 -> "(صبح)"
+                hour == 12 -> "(ظهر)"
+                else -> "(بعدازظهر)"
+            }
+            
+            val displayHour = if (hour > 12) hour - 12 else hour
+            val formattedHour = if (displayHour < 10) "۰$displayHour" else displayHour.toString()
+            
+            val result = "$formattedHour:$minute $period"
+            com.example.hello.utils.NumberUtils.toPersianDigits(result)
+        } catch (e: Exception) {
+            com.example.hello.utils.NumberUtils.toPersianDigits(time)
+        }
     }
 
     private fun setCounterText(textView: TextView, position: Int, total: Int) {
