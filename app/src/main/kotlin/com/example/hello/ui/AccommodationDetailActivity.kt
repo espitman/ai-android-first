@@ -62,7 +62,13 @@ class AccommodationDetailActivity : AppCompatActivity() {
         val viewPager = findViewById<ViewPager2>(R.id.vpImageAlbum)
         val tvCount = findViewById<TextView>(R.id.tvImageCount)
 
-        viewPager.adapter = ImageAlbumAdapter(sortedImages)
+        viewPager.adapter = ImageAlbumAdapter(sortedImages) { position ->
+            val intent = android.content.Intent(this, ImageLightboxActivity::class.java).apply {
+                putStringArrayListExtra("IMAGES", ArrayList(sortedImages))
+                putExtra("INDEX", position)
+            }
+            startActivity(intent)
+        }
         
         // Setup indicator
         if (sortedImages.isNotEmpty()) {

@@ -8,7 +8,10 @@ import androidx.recyclerview.widget.RecyclerView
 import coil.load
 import com.example.hello.R
 
-class ImageAlbumAdapter(private val imageUrls: List<String>) : RecyclerView.Adapter<ImageAlbumAdapter.ImageViewHolder>() {
+class ImageAlbumAdapter(
+    private val imageUrls: List<String>,
+    private val onItemClick: (Int) -> Unit
+) : RecyclerView.Adapter<ImageAlbumAdapter.ImageViewHolder>() {
 
     class ImageViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val imageView: ImageView = view.findViewById(R.id.ivPagerImage)
@@ -25,6 +28,7 @@ class ImageAlbumAdapter(private val imageUrls: List<String>) : RecyclerView.Adap
             placeholder(R.color.gray_placeholder)
             error(R.color.gray_placeholder)
         }
+        holder.imageView.setOnClickListener { onItemClick(position) }
     }
 
     override fun getItemCount(): Int = imageUrls.size

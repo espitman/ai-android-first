@@ -27,6 +27,9 @@
         <activity
             android:name=".ui.AccommodationDetailActivity"
             android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".ui.ImageLightboxActivity"
+            android:theme="@style/Theme.AppCompat.NoActionBar.FullScreen" />
     </application>
 
 </manifest>
