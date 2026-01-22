@@ -186,6 +186,24 @@ class AccommodationDetailActivity : AppCompatActivity() {
             tvCount.visibility = View.GONE
         }
         
+        // Main Badges
+        item.badges?.main?.let { mainBadges ->
+            val llMain = findViewById<View>(R.id.llMainBadges)
+            val rvMain = findViewById<RecyclerView>(R.id.rvBadgesMain)
+            val tvTitle = findViewById<TextView>(R.id.tvMainBadgesTitle)
+            
+            val sectionTypeName = item.typeDetails?.title_fa ?: ""
+            if (sectionTypeName.isNotEmpty()) {
+                tvTitle.text = "مشخصات کلی $sectionTypeName"
+            }
+            
+            rvMain.layoutManager = LinearLayoutManager(this)
+            rvMain.adapter = DetailsBadgeAdapter(mainBadges)
+            llMain.visibility = if (mainBadges.isNotEmpty()) View.VISIBLE else View.GONE
+        } ?: run {
+            findViewById<View>(R.id.llMainBadges).visibility = View.GONE
+        }
+
         // Secondary Badges
         item.badges?.secondary?.let { secondaryBadges ->
             val rvBadges = findViewById<RecyclerView>(R.id.rvBadgesSecondary)

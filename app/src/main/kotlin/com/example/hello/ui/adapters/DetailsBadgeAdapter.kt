@@ -31,31 +31,16 @@ class DetailsBadgeAdapter(private val items: List<BadgeDetail>) : RecyclerView.A
         val sub = item.description ?: item.subTitle ?: item.subText ?: item.subtitle_lower
         
         val dataContainer = holder.itemView.findViewById<android.widget.LinearLayout>(R.id.dataContainer)
-        dataContainer.removeAllViews()
+        dataContainer.visibility = View.GONE
         
         if (item.data.isNullOrEmpty()) {
             holder.description.text = sub
             holder.description.visibility = if (sub.isNullOrEmpty()) View.GONE else View.VISIBLE
-            dataContainer.visibility = View.GONE
-        } else if (item.data.size == 1) {
-            val combined = if (sub.isNullOrEmpty()) item.data[0] else "$sub - ${item.data[0]}"
+        } else {
+            val joinedData = item.data.joinToString(" . ")
+            val combined = if (sub.isNullOrEmpty()) joinedData else "$sub . $joinedData"
             holder.description.text = combined
             holder.description.visibility = View.VISIBLE
-            dataContainer.visibility = View.GONE
-        } else {
-            holder.description.text = sub
-            holder.description.visibility = if (sub.isNullOrEmpty()) View.GONE else View.VISIBLE
-            dataContainer.visibility = View.VISIBLE
-            
-            item.data.forEach { text ->
-                val textView = TextView(holder.itemView.context).apply {
-                    this.text = "• $text"
-                    this.textSize = 13f
-                    this.setTextColor(android.graphics.Color.parseColor("#777777"))
-                    this.setPadding(0, 4, 0, 4)
-                }
-                dataContainer.addView(textView)
-            }
         }
         
         holder.icon.load(item.icon) {

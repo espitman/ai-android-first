@@ -272,6 +272,41 @@
                         android:nestedScrollingEnabled="false"
                         android:overScrollMode="never" />
 
+                    <!-- Divider -->
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginTop="16dp"
+                        android:background="#F0F0F0" />
+
+                    <!-- Main Badges -->
+                    <LinearLayout
+                        android:id="@+id/llMainBadges"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:paddingTop="16dp"
+                        android:visibility="gone">
+
+                        <TextView
+                            android:id="@+id/tvMainBadgesTitle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="مشخصات کلی"
+                            android:textColor="#1d2830"
+                            android:textSize="18sp"
+                            android:textStyle="bold"
+                            android:layout_marginBottom="8dp" />
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/rvBadgesMain"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:nestedScrollingEnabled="false"
+                            android:overScrollMode="never" />
+
+                    </LinearLayout>
+
                     <!-- Bottom Divider -->
                     <View
                         android:layout_width="match_parent"

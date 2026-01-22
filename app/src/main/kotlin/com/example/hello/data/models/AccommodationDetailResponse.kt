@@ -54,7 +54,7 @@ data class AccommodationDetailItem(
 )
 
 data class AccommodationBadges(
-    val primary: List<BadgeDetail>? = null,
+    val main: List<BadgeDetail>? = null,
     val secondary: List<BadgeDetail>? = null
 )
 

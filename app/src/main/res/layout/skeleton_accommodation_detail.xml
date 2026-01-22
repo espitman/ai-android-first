@@ -109,5 +109,42 @@
             </LinearLayout>
         </LinearLayout>
 
+        <!-- Divider -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="24dp"
+            android:background="#F0F0F0" />
+
+        <!-- Secondary Badges Skeleton -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="12dp">
+            <View android:layout_width="match_parent" android:layout_height="40dp" android:layout_marginVertical="8dp" android:background="@color/gray_placeholder" />
+            <View android:layout_width="match_parent" android:layout_height="40dp" android:layout_marginVertical="8dp" android:background="@color/gray_placeholder" />
+        </LinearLayout>
+
+        <!-- Main Badges Skeleton -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="24dp"
+            android:background="#F0F0F0" />
+        <View
+            android:layout_width="150dp"
+            android:layout_height="20dp"
+            android:layout_marginTop="24dp"
+            android:background="@color/gray_placeholder" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="12dp">
+            <View android:layout_width="match_parent" android:layout_height="40dp" android:layout_marginVertical="8dp" android:background="@color/gray_placeholder" />
+            <View android:layout_width="match_parent" android:layout_height="40dp" android:layout_marginVertical="8dp" android:background="@color/gray_placeholder" />
+        </LinearLayout>
+
     </LinearLayout>
 </LinearLayout>
