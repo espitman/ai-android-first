@@ -24,6 +24,9 @@
         <activity
             android:name=".ui.SettingsActivity"
             android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".ui.AccommodationDetailActivity"
+            android:parentActivityName=".MainActivity" />
     </application>
 
 </manifest>

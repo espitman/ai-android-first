@@ -58,6 +58,28 @@ class AccommodationAdapter(private val items: List<AccommodationItem>) : Recycle
             placeholder(R.color.gray_placeholder)
             error(R.color.gray_placeholder)
         }
+
+        // Set transition names for shared element animation
+        holder.image.transitionName = "shared_image_${item.id}"
+        holder.title.transitionName = "shared_title_${item.id}"
+
+        holder.itemView.setOnClickListener {
+            val context = holder.itemView.context
+            if (context is android.app.Activity) {
+                val intent = android.content.Intent(context, com.example.hello.ui.AccommodationDetailActivity::class.java).apply {
+                    putExtra("ACCOMMODATION_CODE", item.id)
+                    putExtra("ACCOMMODATION_TITLE", item.title)
+                    putExtra("ACCOMMODATION_IMAGE", imageUrl)
+                }
+
+                val options = androidx.core.app.ActivityOptionsCompat.makeSceneTransitionAnimation(
+                    context,
+                    androidx.core.util.Pair(holder.image, "shared_image"),
+                    androidx.core.util.Pair(holder.title, "shared_title")
+                )
+                context.startActivity(intent, options.toBundle())
+            }
+        }
     }
 
     override fun getItemCount(): Int = items.size
