@@ -56,7 +56,10 @@ data class AccommodationDetailItem(
     val spaceDescription: String? = null,
     val commonFacilitiesDescription: String? = null,
     val notesDescription: String? = null,
-    val extraDescription: List<ExtraDescriptionItem>? = null
+    val extraDescription: List<ExtraDescriptionItem>? = null,
+    val amenities: List<Amenity>? = null,
+    val missedAmenities: List<Amenity>? = null,
+    val amenitiesV2: List<AmenityV2>? = null
 )
 
 @Parcelize
@@ -115,10 +118,11 @@ data class ResidenceProvince(
     val name: LocalizedName? = null
 )
 
+@Parcelize
 data class LocalizedName(
-    val fa: String,
-    val en: String
-)
+    val fa: String? = null,
+    val en: String? = null
+) : Parcelable
 
 data class AccommodationPlaceImage(
     val type: String,
@@ -165,3 +169,38 @@ data class AccommodationMetrics(
     val toiletsCount: Int? = null,
     val floor: Int? = null
 )
+
+@Parcelize
+data class Amenity(
+    val id: String? = null,
+    val icon: AmenityIcon? = null,
+    val title: LocalizedName? = null,
+    val subTitle: String? = null
+) : Parcelable
+
+@Parcelize
+data class AmenityIcon(
+    val url: String? = null
+) : Parcelable
+
+@Parcelize
+data class AmenityV2(
+    val icon: AmenityIcon? = null,
+    val state: Boolean? = null,
+    val title: LocalizedName? = null,
+    @SerializedName("items") val subItems: List<String>? = null
+) : Parcelable
+
+data class AmenitiesResponse(
+    val result: AmenitiesResult? = null
+)
+
+data class AmenitiesResult(
+    val amenities: List<AmenityCategory>? = null
+)
+
+@Parcelize
+data class AmenityCategory(
+    val title: LocalizedName? = null,
+    val items: List<AmenityV2>? = null
+) : Parcelable

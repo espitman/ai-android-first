@@ -238,6 +238,38 @@ class AccommodationDetailActivity : AppCompatActivity() {
         } else {
             findViewById<View>(R.id.llDescriptionSection).visibility = View.GONE
         }
+
+        // Amenities Section
+        val amenities = item.amenities ?: emptyList()
+        val missedAmenities = item.missedAmenities ?: emptyList()
+        val amenitiesV2 = item.amenitiesV2 ?: emptyList()
+
+        if (amenities.isNotEmpty() || missedAmenities.isNotEmpty()) {
+            findViewById<View>(R.id.llAmenitiesSection).visibility = View.VISIBLE
+            
+            // Available Amenities (Show first 8)
+            val rvAmenities = findViewById<RecyclerView>(R.id.rvAmenities)
+            rvAmenities.layoutManager = androidx.recyclerview.widget.GridLayoutManager(this, 4)
+            rvAmenities.adapter = com.example.hello.ui.adapters.AmenitiesAdapter(amenities.take(8))
+
+            // Missed Amenities
+            if (missedAmenities.isNotEmpty()) {
+                findViewById<View>(R.id.llMissedAmenities).visibility = View.VISIBLE
+                val rvMissed = findViewById<RecyclerView>(R.id.rvMissedAmenities)
+                rvMissed.layoutManager = androidx.recyclerview.widget.GridLayoutManager(this, 4)
+                rvMissed.adapter = com.example.hello.ui.adapters.AmenitiesAdapter(missedAmenities.take(4))
+            } else {
+                findViewById<View>(R.id.llMissedAmenities).visibility = View.GONE
+            }
+
+            // Show All Button
+            findViewById<View>(R.id.btnShowAllAmenities).setOnClickListener {
+                val sheet = AccommodationAmenitiesBottomSheet.newInstance(item.id)
+                sheet.show(supportFragmentManager, "AmenitiesSheet")
+            }
+        } else {
+            findViewById<View>(R.id.llAmenitiesSection).visibility = View.GONE
+        }
     }
 
     private fun setCounterText(textView: TextView, position: Int, total: Int) {

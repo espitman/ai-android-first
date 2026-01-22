@@ -9,4 +9,7 @@ interface ApiService {
 
     @retrofit2.http.GET
     suspend fun getAccommodationDetails(@retrofit2.http.Url url: String): com.example.hello.data.models.AccommodationDetailResponse
+
+    @retrofit2.http.GET
+    suspend fun getAmenities(@retrofit2.http.Url url: String): com.example.hello.data.models.AmenitiesResponse
 }
