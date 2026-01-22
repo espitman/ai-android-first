@@ -49,23 +49,27 @@ class AccommodationDetailActivity : AppCompatActivity() {
                 Log.d("AccDetail", "Calling URL: $url")
                 val response = RetrofitClient.getApiService().getAccommodationDetails(url)
                 
-                if (response.success) {
+                if (response.success && response.result != null) {
                     Log.d("AccDetail", "API Success: ${response.result.item.title}")
                     updateUI(response.result)
                 } else {
-                    Log.e("AccDetail", "API Success False")
-                    val skeleton = findViewById<View>(R.id.skeletonLayout)
-                    skeleton.clearAnimation()
-                    skeleton.visibility = View.GONE
+                    Log.e("AccDetail", "API Success False or Result Null")
+                    handleError()
                 }
             } catch (e: Exception) {
-                Log.e("AccDetail", "API Error: ${e.message}")
+                Log.e("AccDetail", "Load Error: ${e.message}")
                 e.printStackTrace()
-                val skeleton = findViewById<View>(R.id.skeletonLayout)
-                skeleton.clearAnimation()
-                skeleton.visibility = View.GONE
+                handleError()
             }
         }
+    }
+
+    private fun handleError() {
+        val skeleton = findViewById<View>(R.id.skeletonLayout)
+        skeleton.clearAnimation()
+        skeleton.visibility = View.GONE
+        findViewById<View>(R.id.contentLayout).visibility = View.VISIBLE
+        // Optionally show an error message
     }
 
     private fun updateUI(result: com.example.hello.data.models.AccommodationDetailResult) {
@@ -212,6 +216,27 @@ class AccommodationDetailActivity : AppCompatActivity() {
             rvBadges.visibility = if (secondaryBadges.isNotEmpty()) View.VISIBLE else View.GONE
         } ?: run {
             findViewById<View>(R.id.rvBadgesSecondary).visibility = View.GONE
+        }
+
+        // Description Section
+        val typeNameTitle = item.typeDetails?.title_fa ?: "اقامتگاه"
+        findViewById<TextView>(R.id.tvDescriptionTitle).text = "توضیحات $typeNameTitle"
+        
+        val descMain = item.description ?: ""
+        if (descMain.isNotEmpty()) {
+            findViewById<View>(R.id.llDescriptionSection).visibility = View.VISIBLE
+            findViewById<TextView>(R.id.tvDescriptionSummary).text = descMain
+            
+            findViewById<View>(R.id.btnShowMoreDescription).setOnClickListener {
+                val sheet = AccommodationDescriptionBottomSheet.newInstance(
+                    item.code,
+                    "توضیحات $typeNameTitle",
+                    item.extraDescription
+                )
+                sheet.show(supportFragmentManager, "DescriptionSheet")
+            }
+        } else {
+            findViewById<View>(R.id.llDescriptionSection).visibility = View.GONE
         }
     }
 

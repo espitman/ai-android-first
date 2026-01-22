@@ -1,6 +1,8 @@
 package com.example.hello.data.models
 
 import com.google.gson.annotations.SerializedName
+import kotlinx.parcelize.Parcelize
+import android.os.Parcelable
 
 data class AccommodationDetailResponse(
     val success: Boolean,
@@ -50,8 +52,19 @@ data class AccommodationDetailItem(
     val rateAndReview: AccommodationRateAndReview? = null,
     val maxDiscountPercent: Int? = null,
     val accommodationMetrics: AccommodationMetrics? = null,
-    val badges: AccommodationBadges? = null
+    val badges: AccommodationBadges? = null,
+    val spaceDescription: String? = null,
+    val commonFacilitiesDescription: String? = null,
+    val notesDescription: String? = null,
+    val extraDescription: List<ExtraDescriptionItem>? = null
 )
+
+@Parcelize
+data class ExtraDescriptionItem(
+    val title: String? = null,
+    val subTitle: String? = null,
+    val text: String? = null
+) : Parcelable
 
 data class AccommodationBadges(
     val main: List<BadgeDetail>? = null,
@@ -147,6 +160,7 @@ data class AccommodationMetrics(
     val areaSize: Int? = null,
     val buildingSize: Int? = null,
     val bathroomsCount: Int? = null,
+    val iranianToiletsCount: Int? = null,
     val bedroomsCount: Int? = null,
     val toiletsCount: Int? = null,
     val floor: Int? = null

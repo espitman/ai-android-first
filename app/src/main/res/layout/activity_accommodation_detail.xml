@@ -314,6 +314,64 @@
                         android:layout_marginTop="8dp"
                         android:background="#F0F0F0" />
 
+                    <!-- Description Section -->
+                    <LinearLayout
+                        android:id="@+id/llDescriptionSection"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:paddingVertical="20dp"
+                        android:visibility="gone">
+
+                        <TextView
+                            android:id="@+id/tvDescriptionTitle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="توضیحات اقامتگاه"
+                            android:textColor="#1d2830"
+                            android:textSize="18sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/tvDescriptionSummary"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="12dp"
+                            android:ellipsize="end"
+                            android:lineSpacingExtra="4dp"
+                            android:maxLines="4"
+                            android:textColor="#444"
+                            android:textSize="15sp" />
+
+                        <LinearLayout
+                            android:id="@+id/btnShowMoreDescription"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="12dp"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal"
+                            android:background="?attr/selectableItemBackground"
+                            android:padding="4dp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="توضیحات بیشتر"
+                                android:textColor="#1d2830"
+                                android:textSize="14sp"
+                                android:textStyle="bold" />
+
+                            <ImageView
+                                android:layout_width="16dp"
+                                android:layout_height="16dp"
+                                android:layout_marginStart="4dp"
+                                android:src="@drawable/ic_down"
+                                app:tint="#1d2830" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
                 </LinearLayout>
             </androidx.core.widget.NestedScrollView>
 

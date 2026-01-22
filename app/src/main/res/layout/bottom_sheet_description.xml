@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_bottom_sheet"
+    android:orientation="vertical"
+    android:layoutDirection="rtl">
+
+    <!-- Handle -->
+    <View
+        android:layout_width="40dp"
+        android:layout_height="4dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="12dp"
+        android:background="#DDD" />
+
+    <!-- Header -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingHorizontal="16dp">
+
+        <ImageView
+            android:id="@+id/btnClose"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:padding="8dp"
+            android:src="@drawable/ic_close"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            app:tint="#333" />
+
+        <TextView
+            android:id="@+id/tvSheetTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginStart="8dp"
+            android:text="توضیحات بیشتر"
+            android:textColor="#1d2830"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:fontFamily="@font/vazirmatn" />
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#EEE" />
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="20dp">
+
+            <!-- Primary Description -->
+            <TextView
+                android:id="@+id/tvFullDescTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="توضیحات اقامتگاه"
+                android:textColor="#1d2830"
+                android:textSize="17sp"
+                android:textStyle="bold"
+                android:fontFamily="@font/vazirmatn" />
+
+            <TextView
+                android:id="@+id/tvFullDescBody"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:lineSpacingExtra="6dp"
+                android:textColor="#444"
+                android:textSize="15sp"
+                android:fontFamily="@font/vazirmatn" />
+
+            <!-- Extra Description -->
+            <LinearLayout
+                android:id="@+id/llExtraDesc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginVertical="24dp"
+                    android:background="#F0F0F0" />
+
+                <TextView
+                    android:id="@+id/tvExtraDescBody"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:lineSpacingExtra="6dp"
+                    android:textColor="#444"
+                    android:textSize="15sp"
+                    android:fontFamily="@font/vazirmatn" />
+            </LinearLayout>
+
+            <!-- Space Description -->
+            <LinearLayout
+                android:id="@+id/llSpaceDesc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginVertical="24dp"
+                    android:background="#F0F0F0" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="توصیف فضای اقامتگاه و واحد"
+                    android:textColor="#1d2830"
+                    android:textSize="17sp"
+                    android:textStyle="bold"
+                    android:fontFamily="@font/vazirmatn" />
+
+                <TextView
+                    android:id="@+id/tvSpaceDescBody"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:lineSpacingExtra="6dp"
+                    android:textColor="#444"
+                    android:textSize="15sp"
+                    android:fontFamily="@font/vazirmatn" />
+            </LinearLayout>
+
+            <!-- Common Facilities -->
+            <LinearLayout
+                android:id="@+id/llCommonFacilities"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginVertical="24dp"
+                    android:background="#F0F0F0" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="امکانات مشترک اقامتگاه"
+                    android:textColor="#1d2830"
+                    android:textSize="17sp"
+                    android:textStyle="bold"
+                    android:fontFamily="@font/vazirmatn" />
+
+                <TextView
+                    android:id="@+id/tvCommonFacilitiesBody"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:lineSpacingExtra="6dp"
+                    android:textColor="#444"
+                    android:textSize="15sp"
+                    android:fontFamily="@font/vazirmatn" />
+            </LinearLayout>
+
+            <!-- Notes -->
+            <LinearLayout
+                android:id="@+id/llNotes"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginVertical="24dp"
+                    android:background="#F0F0F0" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="نکات بیشتری که باید بدانید"
+                    android:textColor="#1d2830"
+                    android:textSize="17sp"
+                    android:textStyle="bold"
+                    android:fontFamily="@font/vazirmatn" />
+
+                <TextView
+                    android:id="@+id/tvNotesBody"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:lineSpacingExtra="6dp"
+                    android:textColor="#444"
+                    android:textSize="15sp"
+                    android:fontFamily="@font/vazirmatn" />
+            </LinearLayout>
+            
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="60dp" />
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+</LinearLayout>
