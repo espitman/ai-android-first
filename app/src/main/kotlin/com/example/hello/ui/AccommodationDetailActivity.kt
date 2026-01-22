@@ -259,8 +259,6 @@ class AccommodationDetailActivity : AppCompatActivity(), com.google.android.gms.
         // Amenities Section
         val amenities = item.amenities ?: emptyList()
         val missedAmenities = item.missedAmenities ?: emptyList()
-        val amenitiesV2 = item.amenitiesV2 ?: emptyList()
-
         if (amenities.isNotEmpty() || missedAmenities.isNotEmpty()) {
             findViewById<View>(R.id.llAmenitiesSection).visibility = View.VISIBLE
             
@@ -325,7 +323,7 @@ class AccommodationDetailActivity : AppCompatActivity(), com.google.android.gms.
         }
 
         // Rules Section
-        findViewById<TextView>(R.id.tvRulesTitle).text = "قوانین و مقررات $typeName"
+        findViewById<TextView>(R.id.tvRulesTitle).text = "قوانین و مقررات"
         
         findViewById<TextView>(R.id.tvCheckInTime).text = formatRuleTime(item.checkIn, true)
         findViewById<TextView>(R.id.tvCheckOutTime).text = formatRuleTime(item.checkOut, false)

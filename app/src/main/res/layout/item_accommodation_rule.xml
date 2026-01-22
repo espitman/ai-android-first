@@ -4,24 +4,24 @@
     android:layout_height="wrap_content"
     android:gravity="center_vertical"
     android:orientation="horizontal"
-    android:paddingVertical="12dp"
+    android:paddingVertical="10dp"
     android:layoutDirection="rtl">
+
+    <ImageView
+        android:id="@+id/ivRuleStatusIcon"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:src="@drawable/ic_check_simple" />
 
     <TextView
         android:id="@+id/tvRuleText"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:textColor="#333333"
-        android:textSize="14sp"
+        android:layout_marginStart="12dp"
+        android:textColor="#1d2830"
+        android:textSize="15sp"
         android:fontFamily="@font/vazirmatn"
         android:gravity="right" />
-
-    <ImageView
-        android:id="@+id/ivRuleStatusIcon"
-        android:layout_width="18dp"
-        android:layout_height="18dp"
-        android:layout_marginStart="16dp"
-        android:src="@drawable/ic_check_simple" />
 
 </LinearLayout>
