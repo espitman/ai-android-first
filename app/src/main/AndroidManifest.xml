@@ -20,6 +20,9 @@
         <activity
             android:name=".SecondActivity"
             android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".ui.SettingsActivity"
+            android:parentActivityName=".MainActivity" />
     </application>
 
 </manifest>

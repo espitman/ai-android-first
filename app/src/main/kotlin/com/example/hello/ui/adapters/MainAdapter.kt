@@ -247,10 +247,18 @@ class MainAdapter(private val widgets: List<Widget>) : RecyclerView.Adapter<Recy
 
     class SliderViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val viewPager: ViewPager2 = view.findViewById(R.id.viewPagerSlider)
+        init {
+            viewPager.isFocusable = false
+            viewPager.isFocusableInTouchMode = false
+        }
     }
 
     class CategoriesViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val recyclerView: RecyclerView = view.findViewById(R.id.rvCategories)
+        init {
+            recyclerView.isFocusable = false
+            recyclerView.isFocusableInTouchMode = false
+        }
     }
 
     class BannerViewHolder(view: View) : RecyclerView.ViewHolder(view) {
@@ -268,6 +276,10 @@ class MainAdapter(private val widgets: List<Widget>) : RecyclerView.Adapter<Recy
         val container: View = view.findViewById(R.id.container)
         val title: TextView = view.findViewById(R.id.tvTitle)
         val recyclerView: RecyclerView = view.findViewById(R.id.rvBadges)
+        init {
+            recyclerView.isFocusable = false
+            recyclerView.isFocusableInTouchMode = false
+        }
     }
 
     class LinkCarouselViewHolder(view: View) : RecyclerView.ViewHolder(view) {
@@ -276,6 +288,10 @@ class MainAdapter(private val widgets: List<Widget>) : RecyclerView.Adapter<Recy
         val btnShowAll: TextView = view.findViewById(R.id.btnShowAll)
         val subTitle: TextView = view.findViewById(R.id.tvSubTitle)
         val recyclerView: RecyclerView = view.findViewById(R.id.rvItems)
+        init {
+            recyclerView.isFocusable = false
+            recyclerView.isFocusableInTouchMode = false
+        }
     }
 
     class CardCarouselViewHolder(view: View) : RecyclerView.ViewHolder(view) {
@@ -284,12 +300,20 @@ class MainAdapter(private val widgets: List<Widget>) : RecyclerView.Adapter<Recy
         val btnShowAll: TextView = view.findViewById(R.id.btnShowAll)
         val subTitle: TextView = view.findViewById(R.id.tvSubTitle)
         val recyclerView: RecyclerView = view.findViewById(R.id.rvItems)
+        init {
+            recyclerView.isFocusable = false
+            recyclerView.isFocusableInTouchMode = false
+        }
     }
 
     class AccommodationViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val title: TextView = view.findViewById(R.id.tvAccTitle)
         val btnShowAll: TextView = view.findViewById(R.id.btnShowAll)
         val recyclerView: RecyclerView = view.findViewById(R.id.rvAccommodations)
+        init {
+            recyclerView.isFocusable = false
+            recyclerView.isFocusableInTouchMode = false
+        }
     }
 
     class UnknownViewHolder(view: View) : RecyclerView.ViewHolder(view)

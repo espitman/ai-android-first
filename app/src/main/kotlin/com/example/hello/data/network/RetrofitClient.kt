@@ -4,13 +4,20 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
 object RetrofitClient {
-    private const val BASE_URL = "http://192.168.1.7:5176/"
-
-    val apiService: ApiService by lazy {
-        Retrofit.Builder()
-            .baseUrl(BASE_URL)
-            .addConverterFactory(GsonConverterFactory.create())
-            .build()
-            .create(ApiService::class.java)
+    
+    private var retrofit: Retrofit? = null
+    
+    fun getApiService(): ApiService {
+        val currentUrl = ServerConfig.getServerUrl()
+        
+        // Recreate Retrofit if URL changed or not initialized
+        if (retrofit == null || retrofit?.baseUrl()?.toString() != currentUrl) {
+            retrofit = Retrofit.Builder()
+                .baseUrl(currentUrl)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build()
+        }
+        
+        return retrofit!!.create(ApiService::class.java)
     }
 }
