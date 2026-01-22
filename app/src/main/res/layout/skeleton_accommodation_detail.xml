@@ -218,5 +218,30 @@
             android:layout_height="18dp"
             android:layout_marginTop="16dp"
             android:background="@color/gray_placeholder" />
+
+        <!-- Location Skeleton -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="24dp"
+            android:background="#F0F0F0" />
+            
+        <View
+            android:layout_width="150dp"
+            android:layout_height="22dp"
+            android:layout_marginTop="20dp"
+            android:background="@color/gray_placeholder" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="220dp"
+            android:layout_marginTop="16dp"
+            android:background="@color/gray_placeholder" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:layout_marginTop="24dp"
+            android:background="@color/gray_placeholder" />
     </LinearLayout>
 </LinearLayout>

@@ -59,7 +59,8 @@ data class AccommodationDetailItem(
     val extraDescription: List<ExtraDescriptionItem>? = null,
     val amenities: List<Amenity>? = null,
     val missedAmenities: List<Amenity>? = null,
-    val amenitiesV2: List<AmenityV2>? = null
+    val amenitiesV2: List<AmenityV2>? = null,
+    val nearbyCentersV2: List<NearbyCenterCategory>? = null
 )
 
 @Parcelize
@@ -101,7 +102,8 @@ data class HostProfileItem(
 )
 
 data class PlaceOfResidence(
-    val area: ResidenceArea? = null
+    val area: ResidenceArea? = null,
+    val location: ResidentLocation? = null
 )
 
 data class ResidenceArea(
@@ -203,4 +205,24 @@ data class AmenitiesResult(
 data class AmenityCategory(
     val title: LocalizedName? = null,
     val items: List<AmenityV2>? = null
+) : Parcelable
+
+@Parcelize
+data class ResidentLocation(
+    val lat: Double,
+    val lng: Double,
+    val radius: Int? = null
+) : Parcelable
+
+@Parcelize
+data class NearbyCenterCategory(
+    val title: String? = null,
+    val items: List<NearbyCenterItem>? = null
+) : Parcelable
+
+@Parcelize
+data class NearbyCenterItem(
+    val key: String? = null,
+    val value: String? = null,
+    val accessibleBy: String? = null
 ) : Parcelable

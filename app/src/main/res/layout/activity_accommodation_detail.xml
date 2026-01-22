@@ -461,6 +461,96 @@
 
                     </LinearLayout>
 
+                    <!-- Divider -->
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="#F0F0F0" />
+
+                    <!-- Location Section -->
+                    <LinearLayout
+                        android:id="@+id/llLocationSection"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:paddingVertical="24dp"
+                        android:visibility="gone">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="موقعیت مکانی"
+                            android:textColor="#1d2830"
+                            android:textSize="18sp"
+                            android:textStyle="bold"
+                            android:fontFamily="@font/vazirmatn" />
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="match_parent"
+                            android:layout_height="220dp"
+                            android:layout_marginTop="16dp"
+                            app:cardCornerRadius="16dp"
+                            app:cardElevation="0dp">
+
+                            <fragment
+                                android:id="@+id/mapFragment"
+                                android:name="com.google.android.gms.maps.SupportMapFragment"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent" />
+                            
+                            <!-- Overlay Circle for fuzzy location -->
+                            <View
+                                android:layout_width="100dp"
+                                android:layout_height="100dp"
+                                android:layout_gravity="center"
+                                android:background="@drawable/fuzzy_location_circle" />
+
+                        </androidx.cardview.widget.CardView>
+
+                        <TextView
+                            android:id="@+id/tvLocationNote"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="12dp"
+                            android:text="موقعیت مکانی دقیق پس از رزرو کامل ارسال خواهد شد."
+                            android:textColor="#444"
+                            android:textSize="14sp"
+                            android:fontFamily="@font/vazirmatn"
+                            android:gravity="right" />
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_marginTop="24dp"
+                            android:background="#F0F0F0" />
+
+                        <TextView
+                            android:id="@+id/tvNeighborhoodTitle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="24dp"
+                            android:text="اطلاعات و فاصله مراکز نزدیک"
+                            android:textColor="#1d2830"
+                            android:textSize="18sp"
+                            android:textStyle="bold"
+                            android:fontFamily="@font/vazirmatn" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:text="تمامی فواصل به صورت حدودی و در شرایط معمولی ترافیک می‌باشد."
+                            android:textColor="#666"
+                            android:textSize="13sp"
+                            android:fontFamily="@font/vazirmatn" />
+
+                        <LinearLayout
+                            android:id="@+id/llNeighborhoodList"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical" />
+
+                    </LinearLayout>
                 </LinearLayout>
             </androidx.core.widget.NestedScrollView>
 

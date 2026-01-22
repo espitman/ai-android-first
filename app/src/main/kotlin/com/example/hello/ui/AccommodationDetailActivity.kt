@@ -17,12 +17,27 @@ import androidx.recyclerview.widget.RecyclerView
 import coil.load
 import kotlinx.coroutines.launch
 
-class AccommodationDetailActivity : AppCompatActivity() {
+class AccommodationDetailActivity : AppCompatActivity(), com.google.android.gms.maps.OnMapReadyCallback {
+
+    private var googleMap: com.google.android.gms.maps.GoogleMap? = null
+    private var currentItem: com.example.hello.data.models.AccommodationDetailItem? = null
+
+    override fun onMapReady(map: com.google.android.gms.maps.GoogleMap) {
+        googleMap = map
+        googleMap?.uiSettings?.isMapToolbarEnabled = false
+        currentItem?.placeOfResidence?.location?.let { loc ->
+            val pos = com.google.android.gms.maps.model.LatLng(loc.lat, loc.lng)
+            googleMap?.animateCamera(com.google.android.gms.maps.CameraUpdateFactory.newLatLngZoom(pos, 15f))
+        }
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_accommodation_detail)
         supportActionBar?.hide()
+
+        val mapFragment = supportFragmentManager.findFragmentById(R.id.mapFragment) as? com.google.android.gms.maps.SupportMapFragment
+        mapFragment?.getMapAsync(this)
 
         val accId = intent.getStringExtra("ACCOMMODATION_CODE") ?: ""
         val initialTitle = intent.getStringExtra("ACCOMMODATION_TITLE") ?: ""
@@ -50,6 +65,7 @@ class AccommodationDetailActivity : AppCompatActivity() {
                 val response = RetrofitClient.getApiService().getAccommodationDetails(url)
                 
                 if (response.success && response.result != null) {
+                    currentItem = response.result.item
                     Log.d("AccDetail", "API Success: ${response.result.item.title}")
                     updateUI(response.result)
                 } else {
@@ -82,7 +98,8 @@ class AccommodationDetailActivity : AppCompatActivity() {
         findViewById<View>(R.id.contentLayout).visibility = View.VISIBLE
         
         findViewById<TextView>(R.id.tvDetailTitle).text = item.title
-        findViewById<TextView>(R.id.tvAccommodationCode).text = "کد: ${item.code}"
+        findViewById<TextView>(R.id.tvAccommodationCode).text = 
+            com.example.hello.utils.NumberUtils.toPersianDigits("کد: ${item.code}")
 
         // Rating & Reviews
         item.rateAndReview?.let {
@@ -269,6 +286,42 @@ class AccommodationDetailActivity : AppCompatActivity() {
             }
         } else {
             findViewById<View>(R.id.llAmenitiesSection).visibility = View.GONE
+        }
+
+        // Location Section
+        val location = item.placeOfResidence?.location
+        val nearbyCategories = item.nearbyCentersV2 ?: emptyList()
+
+        if (location != null || nearbyCategories.isNotEmpty()) {
+            findViewById<View>(R.id.llLocationSection).visibility = View.VISIBLE
+            
+            // Map logic handled by onMapReady and currentItem
+            if (location != null && googleMap != null) {
+                val pos = com.google.android.gms.maps.model.LatLng(location.lat, location.lng)
+                googleMap?.animateCamera(com.google.android.gms.maps.CameraUpdateFactory.newLatLngZoom(pos, 15f))
+            }
+
+            // Neighborhood / Distances
+            val listContainer = findViewById<android.widget.LinearLayout>(R.id.llNeighborhoodList)
+            listContainer.removeAllViews()
+            
+            nearbyCategories.filter { !it.items.isNullOrEmpty() }.forEach { category ->
+                val categoryView = layoutInflater.inflate(R.layout.item_neighborhood_category, listContainer, false)
+                categoryView.findViewById<TextView>(R.id.tvCategoryTitle).text = category.title
+                
+                val itemsContainer = categoryView.findViewById<android.widget.LinearLayout>(R.id.llCategoryItems)
+                category.items?.forEach { nb ->
+                    val itemView = layoutInflater.inflate(R.layout.item_neighborhood, itemsContainer, false)
+                    itemView.findViewById<TextView>(R.id.tvNeighborhoodTitle).text = 
+                        com.example.hello.utils.NumberUtils.toPersianDigits(nb.key ?: "")
+                    itemView.findViewById<TextView>(R.id.tvNeighborhoodDistance).text = 
+                        com.example.hello.utils.NumberUtils.toPersianDigits(nb.value ?: "")
+                    itemsContainer.addView(itemView)
+                }
+                listContainer.addView(categoryView)
+            }
+        } else {
+            findViewById<View>(R.id.llLocationSection).visibility = View.GONE
         }
     }
 
