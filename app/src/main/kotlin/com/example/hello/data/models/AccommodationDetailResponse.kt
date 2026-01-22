@@ -62,8 +62,46 @@ data class AccommodationDetailItem(
     val amenitiesV2: List<AmenityV2>? = null,
     val nearbyCentersV2: List<NearbyCenterCategory>? = null,
     val restrictedRules: List<AccommodationRule>? = null,
-    val negativeRestrictedRules: List<AccommodationRule>? = null
+    val negativeRestrictedRules: List<AccommodationRule>? = null,
+    val cancellationPolicy: CancellationPolicy? = null,
+    val cancellationPolicyV2: CancellationPolicy? = null,
+    val cancellationPolicyDetails: CancellationPolicyV2? = null,
+    val cancellationPolicyText: String? = null
 )
+
+@Parcelize
+data class CancellationPolicyV2(
+    val id: String? = null,
+    val title: String? = null,
+    val description: String? = null,
+    val beforeCheckIn: CancellationStepDetail? = null,
+    val untilCheckIn: CancellationStepDetail? = null,
+    val afterCheckIn: CancellationStepDetail? = null
+) : Parcelable
+
+@Parcelize
+data class CancellationStepDetail(
+    val title: String? = null,
+    val text: String? = null,
+    val color: String? = null
+) : Parcelable
+
+@Parcelize
+data class CancellationPolicy(
+    val id: String? = null,
+    val title: String? = null,
+    val beforeCheckIn: PolicyTimeFrame? = null,
+    val untilCheckIn: PolicyTimeFrame? = null,
+    val afterCheckIn: PolicyTimeFrame? = null
+) : Parcelable
+
+@Parcelize
+data class PolicyTimeFrame(
+    val days: Int? = null,
+    val firstNightPercent: Int? = null,
+    val remainingNightsPercent: Int? = null,
+    val passedNightsPercent: Int? = null
+) : Parcelable
 
 @Parcelize
 data class AccommodationRule(

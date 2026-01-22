@@ -329,6 +329,47 @@ class AccommodationDetailActivity : AppCompatActivity(), com.google.android.gms.
         
         findViewById<TextView>(R.id.tvCheckInTime).text = formatRuleTime(item.checkIn, true)
         findViewById<TextView>(R.id.tvCheckOutTime).text = formatRuleTime(item.checkOut, false)
+
+        // Accommodation Rules (مقررات کلبه)
+        val rulesContainer = findViewById<android.widget.LinearLayout>(R.id.llAccommodationRulesSection)
+        val rulesList = findViewById<android.widget.LinearLayout>(R.id.llAccommodationRulesList)
+        findViewById<TextView>(R.id.tvAccommodationRulesTitle).text = "مقررات $typeName"
+        rulesList.removeAllViews()
+
+        val rulesData = mutableListOf<Pair<String, Boolean>>()
+        
+        // Positive rules (ticks)
+        item.restrictedRules?.forEach { rule ->
+            rule.positive?.let { rulesData.add(it to true) }
+        }
+
+        // Negative rules (crosses)
+        item.negativeRestrictedRules?.forEach { rule ->
+            rule.negative?.let { rulesData.add(it to false) }
+        }
+
+        if (rulesData.isNotEmpty()) {
+            rulesContainer.visibility = View.VISIBLE
+            rulesData.forEach { (text, isPositive) ->
+                val ruleView = layoutInflater.inflate(R.layout.item_accommodation_rule, rulesList, false)
+                ruleView.findViewById<TextView>(R.id.tvRuleText).text = text
+                ruleView.findViewById<ImageView>(R.id.ivRuleStatusIcon).setImageResource(
+                    if (isPositive) R.drawable.ic_check_simple else R.drawable.ic_cross_simple
+                )
+                rulesList.addView(ruleView)
+            }
+        } else {
+            rulesContainer.visibility = View.GONE
+        }
+
+        // Cancellation Policy
+        findViewById<TextView>(R.id.tvCancellationPolicyTitle).text = 
+            item.cancellationPolicyDetails?.title ?: item.cancellationPolicy?.title ?: "نامشخص"
+            
+        findViewById<View>(R.id.llCancellationSection).setOnClickListener {
+            val sheet = CancellationPolicyBottomSheet.newInstance(item.cancellationPolicyDetails, item.cancellationPolicyText)
+            sheet.show(supportFragmentManager, "CancellationSheet")
+        }
     }
 
     private fun formatRuleTime(time: String?, isCheckIn: Boolean): String {

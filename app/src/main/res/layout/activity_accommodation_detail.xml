@@ -677,6 +677,105 @@
                                 </LinearLayout>
 
                             </LinearLayout>
+
+                            <!-- Accommodation Rules (مقررات کلبه) -->
+                            <LinearLayout
+                                android:id="@+id/llAccommodationRulesSection"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical"
+                                android:paddingVertical="24dp"
+                                android:visibility="gone">
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="center_vertical"
+                                    android:orientation="horizontal"
+                                    android:layoutDirection="rtl">
+
+                                    <TextView
+                                        android:id="@+id/tvAccommodationRulesTitle"
+                                        android:layout_width="0dp"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="1"
+                                        android:text="مقررات کلبه"
+                                        android:textColor="#1d2830"
+                                        android:textSize="18sp"
+                                        android:textStyle="bold"
+                                        android:fontFamily="@font/vazirmatn" />
+
+                                    <ImageView
+                                        android:layout_width="24dp"
+                                        android:layout_height="24dp"
+                                        android:src="@drawable/ic_regulations"
+                                        app:tint="#1d2830" />
+
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:id="@+id/llAccommodationRulesList"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="16dp"
+                                    android:orientation="vertical" />
+
+                            </LinearLayout>
+
+                            <!-- Divider -->
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:background="#F0F0F0" />
+
+                            <!-- Cancellation Policy Section -->
+                            <LinearLayout
+                                android:id="@+id/llCancellationSection"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical"
+                                android:paddingVertical="24dp"
+                                android:background="?attr/selectableItemBackground"
+                                android:clickable="true"
+                                android:focusable="true">
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="center_vertical"
+                                    android:orientation="horizontal"
+                                    android:layoutDirection="rtl">
+
+                                    <TextView
+                                        android:layout_width="0dp"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="1"
+                                        android:text="قوانین لغو رزرو"
+                                        android:textColor="#1d2830"
+                                        android:textSize="18sp"
+                                        android:textStyle="bold"
+                                        android:fontFamily="@font/vazirmatn" />
+
+                                    <TextView
+                                        android:id="@+id/tvCancellationPolicyTitle"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginEnd="8dp"
+                                        android:text="متعادل"
+                                        android:textColor="#888"
+                                        android:textSize="14sp"
+                                        android:fontFamily="@font/vazirmatn" />
+
+                                    <ImageView
+                                        android:layout_width="20dp"
+                                        android:layout_height="20dp"
+                                        android:src="@drawable/ic_down"
+                                        app:tint="#888"
+                                        android:rotation="90" />
+
+                                </LinearLayout>
+
+                            </LinearLayout>
                         </LinearLayout>
                 </LinearLayout>
             </androidx.core.widget.NestedScrollView>

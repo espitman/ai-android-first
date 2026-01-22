@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:layoutDirection="rtl"
+    android:paddingStart="16dp"
+    android:paddingEnd="24dp">
+
+    <!-- Timeline indicator -->
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <View
+            android:id="@+id/viewTopLine"
+            android:layout_width="1.5dp"
+            android:layout_height="20dp"
+            android:background="#DDDDDD" />
+
+        <FrameLayout
+            android:layout_width="24dp"
+            android:layout_height="24dp">
+            <View
+                android:id="@+id/viewCircleOuter"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/timeline_circle_outer" />
+            <View
+                android:id="@+id/viewCircleInner"
+                android:layout_width="12dp"
+                android:layout_height="12dp"
+                android:layout_gravity="center"
+                android:background="@drawable/timeline_circle_inner" />
+        </FrameLayout>
+
+        <View
+            android:id="@+id/viewBottomLine"
+            android:layout_width="1.5dp"
+            android:layout_height="match_parent"
+            android:background="#DDDDDD" />
+
+    </LinearLayout>
+
+    <!-- Content -->
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:layout_marginStart="16dp"
+        android:orientation="vertical"
+        android:paddingVertical="16dp">
+
+        <TextView
+            android:id="@+id/tvStepTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#1d2830"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:fontFamily="@font/vazirmatn" />
+
+        <TextView
+            android:id="@+id/tvStepDescription"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:textColor="#666"
+            android:textSize="12sp"
+            android:fontFamily="@font/vazirmatn" />
+
+    </LinearLayout>
+
+</LinearLayout>
