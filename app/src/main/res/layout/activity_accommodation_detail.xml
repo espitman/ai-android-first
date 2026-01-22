@@ -263,6 +263,22 @@
                         android:layout_height="1dp"
                         android:background="#F0F0F0" />
 
+                    <!-- Secondary Badges -->
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rvBadgesSecondary"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:nestedScrollingEnabled="false"
+                        android:overScrollMode="never" />
+
+                    <!-- Bottom Divider -->
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginTop="8dp"
+                        android:background="#F0F0F0" />
+
                 </LinearLayout>
             </androidx.core.widget.NestedScrollView>
 

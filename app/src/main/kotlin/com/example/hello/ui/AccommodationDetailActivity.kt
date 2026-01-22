@@ -11,6 +11,9 @@ import androidx.viewpager2.widget.ViewPager2
 import com.example.hello.R
 import com.example.hello.data.network.RetrofitClient
 import com.example.hello.ui.adapters.ImageAlbumAdapter
+import com.example.hello.ui.adapters.DetailsBadgeAdapter
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import coil.load
 import kotlinx.coroutines.launch
 
@@ -181,6 +184,16 @@ class AccommodationDetailActivity : AppCompatActivity() {
             })
         } else {
             tvCount.visibility = View.GONE
+        }
+        
+        // Secondary Badges
+        item.badges?.secondary?.let { secondaryBadges ->
+            val rvBadges = findViewById<RecyclerView>(R.id.rvBadgesSecondary)
+            rvBadges.layoutManager = LinearLayoutManager(this)
+            rvBadges.adapter = DetailsBadgeAdapter(secondaryBadges)
+            rvBadges.visibility = if (secondaryBadges.isNotEmpty()) View.VISIBLE else View.GONE
+        } ?: run {
+            findViewById<View>(R.id.rvBadgesSecondary).visibility = View.GONE
         }
     }
 

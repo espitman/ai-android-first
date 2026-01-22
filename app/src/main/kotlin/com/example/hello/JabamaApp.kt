@@ -11,6 +11,7 @@ class JabamaApp : Application(), ImageLoaderFactory {
     override fun newImageLoader(): ImageLoader {
         return ImageLoader.Builder(this)
             .components {
+                add(coil.decode.SvgDecoder.Factory())
                 if (Build.VERSION.SDK_INT >= 28) {
                     add(ImageDecoderDecoder.Factory())
                 } else {

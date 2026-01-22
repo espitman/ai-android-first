@@ -49,7 +49,23 @@ data class AccommodationDetailItem(
     val capacity: AccommodationCapacity? = null,
     val rateAndReview: AccommodationRateAndReview? = null,
     val maxDiscountPercent: Int? = null,
-    val accommodationMetrics: AccommodationMetrics? = null
+    val accommodationMetrics: AccommodationMetrics? = null,
+    val badges: AccommodationBadges? = null
+)
+
+data class AccommodationBadges(
+    val primary: List<BadgeDetail>? = null,
+    val secondary: List<BadgeDetail>? = null
+)
+
+data class BadgeDetail(
+    val icon: String? = null,
+    val title: String? = null,
+    val description: String? = null,
+    @SerializedName("subTitle") val subTitle: String? = null,
+    @SerializedName("subtitle") val subtitle_lower: String? = null,
+    @SerializedName("subText") val subText: String? = null,
+    val data: List<String>? = null
 )
 
 data class TypeDetails(
