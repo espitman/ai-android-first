@@ -31,7 +31,7 @@ class AccommodationDetailActivity : AppCompatActivity() {
             error(R.color.gray_placeholder)
         }
 
-        findViewById<androidx.appcompat.widget.Toolbar>(R.id.toolbar).setNavigationOnClickListener {
+        findViewById<ImageView>(R.id.btnBack).setOnClickListener {
             onBackPressed()
         }
     }
