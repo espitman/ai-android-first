@@ -2993,6 +2993,7 @@ drawable design_ic_visibility_off
 drawable design_password_eye
 drawable design_snackbar_background
 drawable ic_arrow_back_black_24
+drawable ic_back
 drawable ic_call_answer
 drawable ic_call_answer_low
 drawable ic_call_answer_video
@@ -3005,11 +3006,13 @@ drawable ic_keyboard_black_24dp
 drawable ic_m3_chip_check
 drawable ic_m3_chip_checked_circle
 drawable ic_m3_chip_close
+drawable ic_menu
 drawable ic_mtrl_checked_circle
 drawable ic_mtrl_chip_checked_black
 drawable ic_mtrl_chip_checked_circle
 drawable ic_mtrl_chip_close_circle
 drawable ic_search_black_24
+drawable ic_settings
 drawable m3_avd_hide_password
 drawable m3_avd_show_password
 drawable m3_bottom_sheet_drag_handle
@@ -3195,6 +3198,8 @@ id bounce
 id bounceBoth
 id bounceEnd
 id bounceStart
+id btnBack
+id btnMenu
 id btnShowAll
 id buttonPanel
 id cache_measures
@@ -3269,6 +3274,7 @@ id dragLeft
 id dragRight
 id dragStart
 id dragUp
+id drawerLayout
 id dropdown_menu
 id easeIn
 id easeInOut
@@ -3408,6 +3414,8 @@ id mtrl_picker_text_input_range_start
 id mtrl_picker_title_text
 id mtrl_view_tag_bottom_padding
 id multiply
+id navView
+id nav_settings
 id navigation_bar_item_active_indicator_view
 id navigation_bar_item_icon_container
 id navigation_bar_item_icon_view
@@ -3466,9 +3474,12 @@ id progress_circular
 id progress_horizontal
 id radio
 id ratio
+id rbLocal
+id rbVercel
 id rectangles
 id report_drawn
 id reverseSawtooth
+id rgServerUrl
 id right
 id rightToLeft
 id right_icon
@@ -3592,7 +3603,9 @@ id transition_transform
 id triangle
 id tvAccTitle
 id tvCurrency
+id tvCurrentUrl
 id tvFull
+id tvHeaderTitle
 id tvPerNight
 id tvSubTitle
 id tvSummary
@@ -3738,6 +3751,7 @@ layout abc_select_dialog_material
 layout abc_tooltip
 layout activity_main
 layout activity_second
+layout activity_settings
 layout custom_dialog
 layout design_bottom_navigation_item
 layout design_bottom_sheet_dialog
@@ -3754,6 +3768,7 @@ layout design_navigation_menu
 layout design_navigation_menu_item
 layout design_text_input_end_icon
 layout design_text_input_start_icon
+layout dialog_loading
 layout ime_base_split_test_activity
 layout ime_secondary_split_test_activity
 layout item_accommodation
@@ -3821,6 +3836,7 @@ layout mtrl_picker_text_input_date
 layout mtrl_picker_text_input_date_range
 layout mtrl_search_bar
 layout mtrl_search_view
+layout nav_drawer_header
 layout notification_action
 layout notification_action_tombstone
 layout notification_template_custom_big
@@ -3831,6 +3847,7 @@ layout select_dialog_item_material
 layout select_dialog_multichoice_material
 layout select_dialog_singlechoice_material
 layout support_simple_spinner_dropdown_item
+menu drawer_menu
 plurals mtrl_badge_content_description
 string abc_action_bar_home_description
 string abc_action_bar_up_description

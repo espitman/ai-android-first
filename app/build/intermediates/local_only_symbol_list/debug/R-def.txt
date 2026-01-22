@@ -11,6 +11,9 @@ color white
 drawable bg_badge
 drawable bg_button_bordered
 drawable bg_category_item
+drawable ic_back
+drawable ic_menu
+drawable ic_settings
 drawable rounded_corner_bg
 font vazirmatn
 font vazirmatn_regular
@@ -23,6 +26,8 @@ id accScore
 id accScoreCount
 id accTitle
 id badgeTitle
+id btnBack
+id btnMenu
 id btnShowAll
 id categoryBadgeContainer
 id categoryBadgeText
@@ -30,11 +35,17 @@ id categoryContainer
 id categoryIcon
 id categoryTitle
 id container
+id drawerLayout
 id itemImage
 id itemSubTitle
 id itemTitle
 id ivBanner
+id navView
+id nav_settings
 id progressBar
+id rbLocal
+id rbVercel
+id rgServerUrl
 id rvAccommodations
 id rvBadges
 id rvCategories
@@ -45,7 +56,9 @@ id sliderTitle
 id statsRow
 id tvAccTitle
 id tvCurrency
+id tvCurrentUrl
 id tvFull
+id tvHeaderTitle
 id tvPerNight
 id tvSubTitle
 id tvSummary
@@ -54,6 +67,8 @@ id viewPagerSlider
 id webview
 layout activity_main
 layout activity_second
+layout activity_settings
+layout dialog_loading
 layout item_accommodation
 layout item_badge_item
 layout item_card_carousel_item
@@ -68,6 +83,8 @@ layout item_widget_categories
 layout item_widget_link_carousel
 layout item_widget_slider
 layout item_widget_text
+layout nav_drawer_header
+menu drawer_menu
 string app_name
 string hello_world
 style RoundedTopCorners

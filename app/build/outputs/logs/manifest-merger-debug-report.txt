@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from /Users/espitman/Documents/AndroidApp/firstApp/app/src/main/AndroidManifest.xml:2:1-25:12
-INJECTED from /Users/espitman/Documents/AndroidApp/firstApp/app/src/main/AndroidManifest.xml:2:1-25:12
-INJECTED from /Users/espitman/Documents/AndroidApp/firstApp/app/src/main/AndroidManifest.xml:2:1-25:12
-INJECTED from /Users/espitman/Documents/AndroidApp/firstApp/app/src/main/AndroidManifest.xml:2:1-25:12
+ADDED from /Users/espitman/Documents/AndroidApp/firstApp/app/src/main/AndroidManifest.xml:2:1-28:12
+INJECTED from /Users/espitman/Documents/AndroidApp/firstApp/app/src/main/AndroidManifest.xml:2:1-28:12
+INJECTED from /Users/espitman/Documents/AndroidApp/firstApp/app/src/main/AndroidManifest.xml:2:1-28:12
+INJECTED from /Users/espitman/Documents/AndroidApp/firstApp/app/src/main/AndroidManifest.xml:2:1-28:12
 MERGED from [com.google.android.material:material:1.11.0] /Users/espitman/.gradle/caches/8.11.1/transforms/df94a791a36b91b6d08b9a4d1e6c493f/transformed/material-1.11.0/AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.constraintlayout:constraintlayout:2.1.4] /Users/espitman/.gradle/caches/8.11.1/transforms/fd5c912f7d08e8621a0339c8d28381ba/transformed/constraintlayout-2.1.4/AndroidManifest.xml:2:1-11:12
 MERGED from [io.coil-kt:coil:2.5.0] /Users/espitman/.gradle/caches/8.11.1/transforms/ee3a39c0e632f33c882b6b7b42919f07/transformed/coil-2.5.0/AndroidManifest.xml:2:1-7:12
@@ -62,8 +62,8 @@ ADDED from /Users/espitman/Documents/AndroidApp/firstApp/app/src/main/AndroidMan
 	android:name
 		ADDED from /Users/espitman/Documents/AndroidApp/firstApp/app/src/main/AndroidManifest.xml:4:22-64
 application
-ADDED from /Users/espitman/Documents/AndroidApp/firstApp/app/src/main/AndroidManifest.xml:6:5-23:19
-INJECTED from /Users/espitman/Documents/AndroidApp/firstApp/app/src/main/AndroidManifest.xml:6:5-23:19
+ADDED from /Users/espitman/Documents/AndroidApp/firstApp/app/src/main/AndroidManifest.xml:6:5-26:19
+INJECTED from /Users/espitman/Documents/AndroidApp/firstApp/app/src/main/AndroidManifest.xml:6:5-26:19
 MERGED from [com.google.android.material:material:1.11.0] /Users/espitman/.gradle/caches/8.11.1/transforms/df94a791a36b91b6d08b9a4d1e6c493f/transformed/material-1.11.0/AndroidManifest.xml:22:5-20
 MERGED from [com.google.android.material:material:1.11.0] /Users/espitman/.gradle/caches/8.11.1/transforms/df94a791a36b91b6d08b9a4d1e6c493f/transformed/material-1.11.0/AndroidManifest.xml:22:5-20
 MERGED from [androidx.constraintlayout:constraintlayout:2.1.4] /Users/espitman/.gradle/caches/8.11.1/transforms/fd5c912f7d08e8621a0339c8d28381ba/transformed/constraintlayout-2.1.4/AndroidManifest.xml:9:5-20
@@ -116,6 +116,12 @@ ADDED from /Users/espitman/Documents/AndroidApp/firstApp/app/src/main/AndroidMan
 		ADDED from /Users/espitman/Documents/AndroidApp/firstApp/app/src/main/AndroidManifest.xml:22:13-55
 	android:name
 		ADDED from /Users/espitman/Documents/AndroidApp/firstApp/app/src/main/AndroidManifest.xml:21:13-43
+activity#com.example.hello.ui.SettingsActivity
+ADDED from /Users/espitman/Documents/AndroidApp/firstApp/app/src/main/AndroidManifest.xml:23:9-25:58
+	android:parentActivityName
+		ADDED from /Users/espitman/Documents/AndroidApp/firstApp/app/src/main/AndroidManifest.xml:25:13-55
+	android:name
+		ADDED from /Users/espitman/Documents/AndroidApp/firstApp/app/src/main/AndroidManifest.xml:24:13-48
 uses-sdk
 INJECTED from /Users/espitman/Documents/AndroidApp/firstApp/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from /Users/espitman/Documents/AndroidApp/firstApp/app/src/main/AndroidManifest.xml

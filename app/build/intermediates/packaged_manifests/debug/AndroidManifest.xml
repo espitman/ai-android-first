@@ -37,6 +37,9 @@
         <activity
             android:name="com.example.hello.SecondActivity"
             android:parentActivityName="com.example.hello.MainActivity" />
+        <activity
+            android:name="com.example.hello.ui.SettingsActivity"
+            android:parentActivityName="com.example.hello.MainActivity" />
 
         <provider
             android:name="androidx.startup.InitializationProvider"
