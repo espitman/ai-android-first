@@ -38,8 +38,8 @@
 
     <!-- New SplashScreen API theme -->
     <style name="Theme.App.Starting" parent="Theme.SplashScreen">
-        <item name="windowSplashScreenAnimatedIcon">@drawable/ic_launcher</item>
-        <item name="windowSplashScreenBackground">#FF6D00</item> <!-- Vibrant Orange -->
+        <item name="windowSplashScreenAnimatedIcon">@mipmap/ic_launcher</item>
+        <item name="windowSplashScreenBackground">#FFFFFF</item>
         <item name="postSplashScreenTheme">@style/Theme.FirstApp</item>
     </style>
 </resources>
