@@ -22,6 +22,8 @@ import com.example.hello.data.network.ServerConfig
 import com.example.hello.ui.SettingsActivity
 import com.example.hello.ui.adapters.MainAdapter
 
+import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
+
 class MainActivity : AppCompatActivity() {
     
     private lateinit var drawerLayout: DrawerLayout
@@ -29,17 +31,20 @@ class MainActivity : AppCompatActivity() {
     private lateinit var progressBar: ProgressBar
     
     override fun onCreate(savedInstanceState: Bundle?) {
+        installSplashScreen()
         super.onCreate(savedInstanceState)
         androidx.appcompat.app.AppCompatDelegate.setDefaultNightMode(androidx.appcompat.app.AppCompatDelegate.MODE_NIGHT_NO)
         setContentView(R.layout.activity_main)
         supportActionBar?.hide()
+        Log.d("JABAMA_DEBUG", "MainActivity onCreate started")
         
         ServerConfig.init(this)
         
         // Initialize views
         drawerLayout = findViewById(R.id.drawerLayout)
-        recyclerView = findViewById(R.id.rvMain)
+        drawerLayout.setBackgroundColor(android.graphics.Color.WHITE) // Set to white explicitly
         progressBar = findViewById(R.id.progressBar)
+        recyclerView = findViewById(R.id.rvMain)
         
         // Setup RecyclerView
         recyclerView.layoutManager = LinearLayoutManager(this)

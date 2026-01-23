@@ -35,4 +35,11 @@
     <style name="BottomSheetStyle" parent="Widget.Design.BottomSheet.Modal">
         <item name="android:background">@drawable/bg_bottom_sheet</item>
     </style>
+
+    <!-- New SplashScreen API theme -->
+    <style name="Theme.App.Starting" parent="Theme.SplashScreen">
+        <item name="windowSplashScreenAnimatedIcon">@drawable/ic_launcher</item>
+        <item name="windowSplashScreenBackground">#FF6D00</item> <!-- Vibrant Orange -->
+        <item name="postSplashScreenTheme">@style/Theme.FirstApp</item>
+    </style>
 </resources>
