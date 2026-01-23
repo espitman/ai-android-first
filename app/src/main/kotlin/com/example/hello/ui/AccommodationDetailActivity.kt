@@ -414,6 +414,11 @@ class AccommodationDetailActivity : AppCompatActivity(), com.google.android.gms.
             
             findViewById<TextView>(R.id.tvShowAllReviews).text = 
                 com.example.hello.utils.NumberUtils.toPersianDigits("مشاهده همه نظرات (${formatNumber(count!!)} مورد)")
+
+            findViewById<View>(R.id.btnShowAllReviews).setOnClickListener {
+                val sheet = AccommodationReviewsBottomSheet.newInstance(item.id)
+                sheet.show(supportFragmentManager, "ReviewsSheet")
+            }
         } else {
             findViewById<View>(R.id.llReviewsSection).visibility = View.GONE
         }

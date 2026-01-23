@@ -12,4 +12,7 @@ interface ApiService {
 
     @retrofit2.http.GET
     suspend fun getAmenities(@retrofit2.http.Url url: String): com.example.hello.data.models.AmenitiesResponse
+
+    @retrofit2.http.GET
+    suspend fun getReviews(@retrofit2.http.Url url: String): com.example.hello.data.models.ReviewsResponse
 }
