@@ -7,6 +7,7 @@ object ServerConfig {
     private const val PREFS_NAME = "app_settings"
     private const val KEY_SERVER_URL = "server_url"
     
+    const val URL_LIARA = "https://jabama-home.liara.run/"
     const val URL_LOCAL = "http://192.168.1.7:5176/"
     const val URL_VERCEL = "https://ai-jabama-home-git-main-espitmans-projects.vercel.app/"
     
@@ -17,7 +18,7 @@ object ServerConfig {
     }
     
     fun getServerUrl(): String {
-        return prefs?.getString(KEY_SERVER_URL, URL_LOCAL) ?: URL_LOCAL
+        return prefs?.getString(KEY_SERVER_URL, URL_LIARA) ?: URL_LIARA
     }
     
     fun setServerUrl(url: String) {
@@ -26,5 +27,9 @@ object ServerConfig {
     
     fun isLocalSelected(): Boolean {
         return getServerUrl() == URL_LOCAL
+    }
+    
+    fun isLiaraSelected(): Boolean {
+        return getServerUrl() == URL_LIARA
     }
 }

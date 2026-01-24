@@ -12,6 +12,7 @@ import com.example.hello.data.network.ServerConfig
 class SettingsActivity : AppCompatActivity() {
 
     private lateinit var rgServerUrl: RadioGroup
+    private lateinit var rbLiara: RadioButton
     private lateinit var rbLocal: RadioButton
     private lateinit var rbVercel: RadioButton
     private lateinit var tvCurrentUrl: TextView
@@ -23,6 +24,7 @@ class SettingsActivity : AppCompatActivity() {
         // Initialize views
         val btnBack = findViewById<ImageView>(R.id.btnBack)
         rgServerUrl = findViewById(R.id.rgServerUrl)
+        rbLiara = findViewById(R.id.rbLiara)
         rbLocal = findViewById(R.id.rbLocal)
         rbVercel = findViewById(R.id.rbVercel)
         tvCurrentUrl = findViewById(R.id.tvCurrentUrl)
@@ -33,16 +35,17 @@ class SettingsActivity : AppCompatActivity() {
         }
 
         // Set current selection
-        if (ServerConfig.isLocalSelected()) {
-            rbLocal.isChecked = true
-        } else {
-            rbVercel.isChecked = true
+        when {
+            ServerConfig.isLiaraSelected() -> rbLiara.isChecked = true
+            ServerConfig.isLocalSelected() -> rbLocal.isChecked = true
+            else -> rbVercel.isChecked = true
         }
         updateUrlDisplay()
 
         // Handle selection change
         rgServerUrl.setOnCheckedChangeListener { _, checkedId ->
             when (checkedId) {
+                R.id.rbLiara -> ServerConfig.setServerUrl(ServerConfig.URL_LIARA)
                 R.id.rbLocal -> ServerConfig.setServerUrl(ServerConfig.URL_LOCAL)
                 R.id.rbVercel -> ServerConfig.setServerUrl(ServerConfig.URL_VERCEL)
             }

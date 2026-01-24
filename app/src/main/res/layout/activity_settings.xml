@@ -62,6 +62,15 @@
             android:orientation="vertical">
 
             <RadioButton
+                android:id="@+id/rbLiara"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="12dp"
+                android:text="سرور Liara (jabama-home)"
+                android:textColor="#333"
+                android:textSize="14sp" />
+
+            <RadioButton
                 android:id="@+id/rbLocal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
